@@ -1,0 +1,96 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common-fragments :: head"></head>
+<body>
+<div th:insert="~{fragments/common-fragments :: scripts}"></div>
+<div th:replace="fragments/common-fragments :: navbar"></div>
+<div id="container" class="bg-light">
+    <div class="container d-flex bg-white shadow-sm">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Products</h3>
+            </div>
+            <form action="/product" method="get">
+                <ul class="list-unstyled components">
+                    <h5>Brand</h5>
+                    <li class="active mb-2" id="homeSubmenu">
+                        <ul class="list-unstyled">
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Samsung')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Xiaomi')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Oppo')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Nokia')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Apple')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Mobiistar')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Huawei')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Realme')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Philips')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Vivo')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Mobell')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Itel')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Coolpad')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('HTC')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Motorola')"></li>
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Jean Paul Gaultier')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Lancome')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Nina Ricci')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Paco Rabanne')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Prada')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Tom Ford')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Valentino')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Versace')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Victoria`s Secret')"></li>-->
+                        </ul>
+                    </li>
+                    <h5>Color</h5>
+                    <li class="active mb-2">
+                        <ul class="list-unstyled">
+                            <li th:insert="fragments/products-fragments :: products-color-checkbox('light')"></li>
+                            <li th:insert="fragments/products-fragments :: products-color-checkbox('dark')"></li>
+                        </ul>
+                    </li>
+                    <h5>Price</h5>
+                    <li class="active mb-2">
+                        <ul class="list-unstyled">
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=0, endingPrice=2000000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=10000000, endingPrice=30000000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=30000000, endingPrice=70000000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=70000000, endingPrice=160000000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=160000000, endingPrice=1000000000)"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </form>
+        </nav>
+        <div class="container mb-5">
+            <div class="container-fluid mt-5 ml-1">
+                <form action="/product/search" method="get" style="justify-content: center">
+                    <th:block th:replace="~{fragments/common-fragments :: search(
+                        options=(${ {
+                            { value: 'brand', text: 'Brand' },
+                            { value: 'productTitle', text: 'Product title' },
+                            { value: 'country', text: 'Manufacturer country' }
+                        } })
+                    )}"/>
+                </form>
+            </div>
+            <div class="mt-4 ml-1">
+                <th:block th:replace="~{fragments/common-fragments :: pagination(class='mx-3')}"/>
+                <div class="container-fluid">
+                    <div class="row" th:fragment="list">
+                        <th:block th:if="${page.getContent().size() == 0}"
+                                  th:insert="~{fragments/common-fragments :: empty-result(text='Products not found')}"/>
+                        <th:block th:unless="${page.getContent().size() == 0}" th:each="product : ${page.getContent()}">
+                            <th:block th:replace="fragments/products-fragments :: product-item(${product})"/>
+                        </th:block>
+                    </div>
+                </div>
+                <th:block th:if="${page.getContent().size() != 0}">
+                    <th:block th:replace="~{fragments/common-fragments :: pagination(class='mx-3')}"/>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="~{fragments/common-fragments :: footer}"></footer>
+</body>
+</html>

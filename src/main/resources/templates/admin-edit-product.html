@@ -1,0 +1,105 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common-fragments :: head"></head>
+<body>
+<div th:insert="~{fragments/common-fragments :: scripts}"></div>
+<div th:replace="fragments/common-fragments :: navbar"></div>
+<div class="bg-light">
+    <div class="py-5">
+        <div class="container py-5 bg-white shadow-sm card-height">
+            <div class="row mx-3">
+                <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
+                <div class="col-md-9 mb-5">
+                    <th:block th:replace="fragments/common-fragments :: info-title(text='Edit product', icon='fas fa-edit mr-2')"/>
+                    <form method="post" action="/admin/edit/product" enctype="multipart/form-data">
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Product title',
+                                    name='productTitle',
+                                    value=(${product.getProductTitle()}),
+                                    error=(${productTitleError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Brand',
+                                    name='brand',
+                                    value=(${product.getBrand()}),
+                                    error=(${brandError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Release year',
+                                    name='year',
+                                    value=(${product.getYear()}),
+                                    error=(${yearError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Country',
+                                    name='country',
+                                    value=(${product.getCountry()}),
+                                    error=(${countryError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-select(
+                                    title='Product model',
+                                    name='model',
+                                    options=(${ {'Old', 'New 99%'} }),
+                                    value=(${product.getModel()}),
+                                    error=(${modelError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Operating System',
+                                    name='operatingSystem',
+                                    value=(${product.getOperatingSystem()}),
+                                    error=(${operatingSystemError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-select(
+                                    title='Color',
+                                    name='productColor',
+                                    options=(${ {'light', 'dark'} }),
+                                    value=(${product.getProductColor()}),
+                                    error=(${productColorError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Battery Capacity',
+                                    name='batteryCapacity',
+                                    value=(${product.getBatteryCapacity()}),
+                                    error=(${batteryCapacityError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Storage Capacity',
+                                    name='storageCapacity',
+                                    value=(${product.getStorageCapacity()}),
+                                    error=(${storageCapacityError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Ram Capacity',
+                                    name='ramCapacity',
+                                    value=(${product.getRamCapacity()}),
+                                    error=(${ramCapacityError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Price',
+                                    name='price',
+                                    value=(${product.getPrice()}),
+                                    error=(${priceError})
+                                )"/>
+                            </div>
+                            <div class="col-md-6">
+                                <div th:if="${product.getFilename()}">
+                                    <img th:src="@{/img/{path} (path = ${product.getFilename()})}"
+                                         class="rounded mx-auto w-100 mb-2"/>
+                                </div>
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" th:value="${product.getId()}"/>
+                        <input type="hidden" name="filename" th:value="${product.getFilename()}"/>
+                        <th:block th:replace="fragments/common-fragments :: icon-button(text='Edit', icon='fas fa-edit mr-2')"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="~{fragments/common-fragments :: footer}"></footer>
+</body>
+</html>

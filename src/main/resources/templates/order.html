@@ -39,7 +39,7 @@
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Date', text=${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')})"/>
                                 <h4 class="manage_user_order_summary">
                                     Order summary:
-                                    <span class="manage_user_order_summary_price" th:text="'$' + ${order.getTotalPrice()} + '0'"></span>
+                                    <span class="manage_user_order_summary_price" th:text="${order.getTotalPrice()} + ' VND'"></span>
                                 </h4>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 </th>
                                 <th th:text="${product.getBrand()}"></th>
                                 <th th:text="${product.getProductTitle()}"></th>
-                                <th th:text="'$' + ${product.getPrice()} + '.00'"></th>
+                                <th th:text="${product.getPrice()} + ' VND'"></th>
                             </tr>
                             </tbody>
                         </table>

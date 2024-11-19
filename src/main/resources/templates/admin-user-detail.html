@@ -59,7 +59,7 @@
                                 <th th:text="${order.getCity()}"></th>
                                 <th th:text="${order.getAddress()}"></th>
                                 <th th:text="${order.getPostIndex()}"></th>
-                                <th th:text="'$' + ${order.getTotalPrice()} + '0'"></th>
+                                <th th:text="${order.getTotalPrice()} + ' VND'"></th>
                                 <th>
                                     <a th:href="@{/admin/order/{orderId} (orderId = ${order.getId()})}">
                                         Show more

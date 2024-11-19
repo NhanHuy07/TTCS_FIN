@@ -41,7 +41,7 @@
                                     <div class="card-body text-center">
                                         <h6 th:text="${product.getProductTitle()}"></h6>
                                         <h6 th:text="${product.getBrand()}"></h6>
-                                        <h6>$<span th:text="${product.getPrice()}"></span>.00</h6>
+                                        <h6><span th:text="${product.getPrice()}"></span> VND</h6>
                                     </div>
                                     <div class="text-center align-items-end mb-3">
                                         <a th:href="@{/admin/product/{productId} (productId = ${product.getId()})}"

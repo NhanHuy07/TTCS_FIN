@@ -88,7 +88,7 @@
                                         <div class="card-body text-center">
                                             <h5 th:text="${product.getProductTitle()}"></h5>
                                             <h6 th:text="${product.getBrand()}"></h6>
-                                            <h6><span th:text="${product.getPrice()}"></span>đ</h6> // có thể sửa sau
+                                            <h6><span th:text="${product.getPrice()}"></span> VND</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                         </button>
                         <input type="hidden" name="totalPrice" th:value="${#aggregates.sum(products.![price])}">
                         <div class="row">
-                            <h4>To pay: $ <span th:text="${#aggregates.sum(products.![price])}"></span>.00</h4>
+                            <h4>To pay:  <span th:text="${#aggregates.sum(products.![price])}"></span> VND</h4>
                         </div>
                     </div>
                 </div>

@@ -9,12 +9,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a th:href="@{/product/3}">
-                    <img class="d-block w-100" src="https://i.ibb.co/Qk3WLwK/oppo-f9-red-600x600.jpg" alt="First slide">
+                    <img class="d-block w-90" src="https://i.ibb.co/Qk3WLwK/oppo-f9-red-600x600.jpg" alt="First slide">
                 </a>
             </div>
             <div class="carousel-item">
                 <a th:href="@{/product/4}">
-                    <img class="d-block w-100" src="https://i.ibb.co/3zLG7XK/nokia-51-plus-black-18thangbh-400x400.jpg" alt="Second slide">
+                    <img class="d-block w-90" src="https://i.ibb.co/3zLG7XK/nokia-51-plus-black-18thangbh-400x400.jpg" alt="Second slide">
                 </a>
             </div>
         </div>
@@ -88,12 +88,6 @@
                                     <div class="row" th:fragment="list">
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[0]})"/>
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[1]})"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="row" th:fragment="list">
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[2]})"/>
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[3]})"/>
                                     </div>
@@ -102,8 +96,20 @@
                             <div class="carousel-item">
                                 <div class="container">
                                     <div class="row" th:fragment="list">
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[2]})"/>
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[3]})"/>
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[4]})"/>
                                         <th:block th:replace="fragments/products-fragments :: product-item(${products[5]})"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="row" th:fragment="list">
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[4]})"/>
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[5]})"/>
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[0]})"/>
+                                        <th:block th:replace="fragments/products-fragments :: product-item(${products[1]})"/>
                                     </div>
                                 </div>
                             </div>

@@ -17,7 +17,7 @@
                 <p class="product-stock" style="color: #54C0A1">In Stock</p>
                 <div class="row ml-1">
                     <h6 class="mr-5">
-                        $<span th:text="${product.getPrice()}"></span>.00
+                        <span th:text="${product.getPrice()} + 'đ' "></span>
                     </h6>
                     <form action="/cart/add" method="post">
                         <button type="submit" name="productId" class="btn btn-success mx-3"
@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td>Operating System:</td>
-                        <td><span th:text="${product.getOperatingSystem()}"></span> ml.</td>
+                        <td><span th:text="${product.getOperatingSystem()}"></span></td>
                     </tr>
                     <tr>
                         <td>Manufacturer country:</td>

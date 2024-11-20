@@ -9,10 +9,10 @@
         <div class="container py-5 bg-white shadow-sm card-height">
             <p class="h4 mb-4 text-center">
                 <i class="fas fa-shopping-cart mr-2"></i>
-                Cart
+                Giỏ hàng
             </p>
             <div class="text-center" th:if="${products.size() == 0}">
-                <p>Cart is empty</p>
+                <p>Giỏ hàng trống!</p>
             </div>
             <div th:if="${products.size() > 0}">
                 <div class="card mb-3 mx-auto" style="max-width: 940px;" th:each="product : ${products}">
@@ -34,7 +34,7 @@
                                 <form class="d-inline" action="/cart/remove" method="post">
                                     <button class="btn btn-warning mb-2">
                                         <i class="far fa-minus-square mr-2"></i>
-                                        Remove
+                                        Xóa
                                     </button>
                                     <input type="hidden" name="productId" th:value="${product.getId()}">
                                 </form>

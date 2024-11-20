@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class PerfumeServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ModelMapper modelMapper;
@@ -26,7 +26,7 @@ public class PerfumeServiceImpl implements ProductService {
     @Override
     public Product getProductById(Long productId) {
         return productRepository.findById(productId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.PERFUME_NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.MOBILE_PHONE_NOT_FOUND));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PerfumeServiceImpl implements ProductService {
     @Override
     public Page<Product> getProductsByFilterParams(SearchRequest request, Pageable pageable) {
         Integer startingPrice = request.getPrice();
-        Integer endingPrice = startingPrice + (startingPrice == 0 ? 500 : 50);
+        Integer endingPrice = startingPrice + (startingPrice == 0 ? 100000000 : 1000000000);
         return productRepository.getProductsByFilterParams(
                 request.getBrands(),
                 request.getColors(),

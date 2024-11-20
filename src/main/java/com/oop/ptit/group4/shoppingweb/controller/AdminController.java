@@ -31,13 +31,13 @@ public class AdminController {
     @GetMapping("/products")
     public String getProducts(Pageable pageable, Model model) {
         controllerUtils.addPagination(model, adminService.getProducts(pageable));
-        return Pages.ADMIN_PERFUMES;
+        return Pages.ADMIN_MOBILE_PHONES;
     }
 
     @GetMapping("/products/search")
     public String searchProducts(SearchRequest request, Pageable pageable, Model model) {
         controllerUtils.addPagination(request, model, adminService.searchProducts(request, pageable));
-        return Pages.ADMIN_PERFUMES;
+        return Pages.ADMIN_MOBILE_PHONES;
     }
 
     @GetMapping("/users")
@@ -73,28 +73,28 @@ public class AdminController {
     @GetMapping("/product/{productId}") // doi ten sau
     public String getProduct(@PathVariable Long productId, Model model) {
         model.addAttribute("product", adminService.getProductById(productId));
-        return Pages.ADMIN_EDIT_PERFUME;
+        return Pages.ADMIN_EDIT_MOBILE_PHONE;
     }
 
     @PostMapping("/edit/product")
     public String editProduct(@Valid ProductRequest product, BindingResult bindingResult, Model model,
                               @RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
         if (controllerUtils.validateInputFields(bindingResult, model, "product", product)) {
-            return Pages.ADMIN_EDIT_PERFUME;
+            return Pages.ADMIN_EDIT_MOBILE_PHONE;
         }
         return controllerUtils.setAlertFlashMessage(attributes, "/admin/products", adminService.editProduct(product, file));
     }
 
     @GetMapping("/add/product")
     public String addProduct() {
-        return Pages.ADMIN_ADD_PERFUME;
+        return Pages.ADMIN_ADD_MOBILE_PHONE;
     }
 
     @PostMapping("/add/product")
     public String addProduct(@Valid ProductRequest product, BindingResult bindingResult, Model model,
                              @RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
         if (controllerUtils.validateInputFields(bindingResult, model, "product", product)) {
-            return Pages.ADMIN_ADD_PERFUME;
+            return Pages.ADMIN_ADD_MOBILE_PHONE;
         }
         return controllerUtils.setAlertFlashMessage(attributes, "/admin/products", adminService.addProduct(product, file));
     }

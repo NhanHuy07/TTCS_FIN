@@ -8,14 +8,22 @@
     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a th:href="@{/product/3}">
-                    <img class="d-block w-90" src="https://i.ibb.co/Qk3WLwK/oppo-f9-red-600x600.jpg" alt="First slide">
-                </a>
+<!--                <a th:href="@{/product/3}">-->
+<!--                    <img class="d-block w-90" src="https://i.ibb.co/Qk3WLwK/oppo-f9-red-1200x1200.jpg" alt="First slide">-->
+<!--                </a>-->
+                <a th:href="@{/perfume/85}">
+                    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+                        <img src="../static/nokia-51-plus-black-18thangbh-400x400.v4.jpg" alt="First slide" height="500" style="max-width: 90%; height: 300;">
+                    </div>                </a>
             </div>
             <div class="carousel-item">
-                <a th:href="@{/product/4}">
-                    <img class="d-block w-90" src="https://i.ibb.co/3zLG7XK/nokia-51-plus-black-18thangbh-400x400.jpg" alt="Second slide">
-                </a>
+<!--                <a th:href="@{/product/4}">-->
+<!--                    <img class="d-block w-90" src="https://i.ibb.co/3zLG7XK/nokia-51-plus-black-18thangbh-400x400.jpg" alt="Second slide">-->
+<!--                </a>-->
+                <a th:href="@{/perfume/46}">
+                    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+                        <img src="../static/oppo-f9-red-1200x1200.v3.jpg" alt="First slide" height="500" style="max-width: 90%; height: 300;">
+                    </div>                </a>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -29,33 +37,70 @@
     </div>
     <div class="container text-center my-3 mt-5">
         <h3>BRANDS</h3>
-        <div id="brandCarousel" class="carousel slide w-100" data-ride="carousel">
-            <div class="carousel-inner w-100" role="listbox">
-                <div class="carousel-item row active">
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Samsung', src='https://i.ibb.co/ThVcsy7/Samsung.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Xiaomi', src='https://i.ibb.co/TkV5Mj8/Xiaomi.png')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Oppo', src='https://i.ibb.co/d4LtSmg/Oppo.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Nokia', src='https://i.ibb.co/WvQghQc/Nokia.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Apple', src='https://i.ibb.co/CQQry18/Apple.jpg')"/>
-                </div>
-                <div class="carousel-item row">
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Mobiistar', src='https://i.ibb.co/RyvJhd4/Mobiistar.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Huawei', src='https://i.ibb.co/cyyxR2w/Huawei.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Realme', src='https://i.ibb.co/k014dQn/Realme.png')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Philips', src='https://i.ibb.co/NZqhznr/Philips.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Vivo', src='https://i.ibb.co/VLKT8bJ/Vivo.jpg')"/>
-                </div>
-                <div class="carousel-item row">
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Mobell', src='https://i.ibb.co/JjmHmTm/Mobell.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Itel', src='https://i.ibb.co/pd6BrFg/Itel.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Coolpad', src='https://i.ibb.co/1qTFgvd/Coolpad.png')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='HTC', src='https://i.ibb.co/M6t2R8q/HTC.jpg')"/>
-                    <th:block th:replace="fragments/products-fragments :: brand-item(brand='Motorola', src='https://i.ibb.co/0F1y55p/Motorola.jpg')"/>
-                </div>
+        <div class="brand-list d-flex flex-wrap justify-content-center gap-3">
+            <div class="brand-item">
+                <img src="https://i.ibb.co/ThVcsy7/Samsung.jpg" alt="Samsung" class="img-fluid" height="100">
+                <p>Samsung</p>
             </div>
-            <th:block th:replace="fragments/common-fragments :: carousel-indicators('#brandCarousel')"/>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/TkV5Mj8/Xiaomi.png" alt="Xiaomi" class="img-fluid" height="100">
+                <p>Xiaomi</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/d4LtSmg/Oppo.jpg" alt="Oppo" class="img-fluid" height="100">
+                <p>Oppo</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/WvQghQc/Nokia.jpg" alt="Nokia" class="img-fluid" height="100">
+                <p>Nokia</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/CQQry18/Apple.jpg" alt="Apple" class="img-fluid" height="100">
+                <p>Apple</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/RyvJhd4/Mobiistar.jpg" alt="Mobiistar" class="img-fluid" height="100">
+                <p>Mobiistar</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/cyyxR2w/Huawei.jpg" alt="Huawei" class="img-fluid" height="100">
+                <p>Huawei</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/k014dQn/Realme.png" alt="Realme" class="img-fluid" height="100">
+                <p>Realme</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/NZqhznr/Philips.jpg" alt="Philips" class="img-fluid" height="100">
+                <p>Philips</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/VLKT8bJ/Vivo.jpg" alt="Vivo" class="img-fluid" height="100">
+                <p>Vivo</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/JjmHmTm/Mobell.jpg" alt="Mobell" class="img-fluid" height="100">
+                <p>Mobell</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/pd6BrFg/Itel.jpg" alt="Itel" class="img-fluid" height="100">
+                <p>Itel</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/1qTFgvd/Coolpad.png" alt="Coolpad" class="img-fluid" height="100">
+                <p>Coolpad</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/M6t2R8q/HTC.jpg" alt="HTC" class="img-fluid" height="100">
+                <p>HTC</p>
+            </div>
+            <div class="brand-item">
+                <img src="https://i.ibb.co/0F1y55p/Motorola.jpg" alt="Motorola" class="img-fluid" height="100">
+                <p>Motorola</p>
+            </div>
         </div>
     </div>
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-6">

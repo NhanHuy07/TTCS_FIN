@@ -16,19 +16,19 @@
                     )"/>
                     <div class="row mt-5 mb-4 border px-3 py-3">
                         <div class="col-md-4">
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='User id', text=${user.getId()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Id nguười dùng', text=${user.getId()})" />
                             <th:block th:replace="fragments/common-fragments :: data-item(title='Email', text=${user.getEmail()})" />
                             <th:block th:replace="fragments/common-fragments :: data-item(title='Role', text=${user.getRoles().iterator().next()})" />
                         </div>
                         <div class="col-md-4">
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='First name', text=${user.getFirstName()})" />
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='Last name', text=${user.getLastName()})" />
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='City', text=${user.getCity()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Tên', text=${user.getFirstName()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Họ', text=${user.getLastName()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Thành phố', text=${user.getCity()})" />
                         </div>
                         <div class="col-md-4">
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='Address', text=${user.getAddress()})" />
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='Phone number', text=${user.getPhoneNumber()})" />
-                            <th:block th:replace="fragments/common-fragments :: data-item(title='Post index', text=${user.getPostIndex()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Địa chỉ', text=${user.getAddress()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Số điện thoại', text=${user.getPhoneNumber()})" />
+                            <th:block th:replace="fragments/common-fragments :: data-item(title='Mã bưu chính', text=${user.getPostIndex()})" />
                         </div>
                     </div>
                     <th:block th:if="${page.getContent().size() == 0}">
@@ -38,17 +38,17 @@
                     </th:block>
                     <th:block th:unless="${page.getContent().size() == 0}">
                         <h5 class="text-center">
-                            Orders
+                            Đơn hàng
                         </h5>
                         <table class="table border text-center">
                             <thead class="table-active">
                             <tr>
-                                <th>Order №</th>
-                                <th>Date</th>
-                                <th>City</th>
-                                <th>Address</th>
-                                <th>Post index</th>
-                                <th>Order Summary</th>
+                                <th>STT</th>
+                                <th>Ngày</th>
+                                <th>Thành phố</th>
+                                <th>Địa chỉ</th>
+                                <th>Mã bưu chính</th>
+                                <th>Tóm tắt</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -62,7 +62,7 @@
                                 <th th:text="${order.getTotalPrice()} + ' VND'"></th>
                                 <th>
                                     <a th:href="@{/admin/order/{orderId} (orderId = ${order.getId()})}">
-                                        Show more
+                                        Xem thêm
                                     </a>
                                 </th>
                             </tr>

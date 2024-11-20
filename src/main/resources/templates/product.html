@@ -13,8 +13,8 @@
             <div class="col-md-7">
                 <h2 th:text="${product.getProductTitle()}"></h2>
                 <h3 th:text="${product.getBrand()}"></h3>
-                <p>Product code: <span th:text="${product.getId()}"></span></p>
-                <p class="product-stock" style="color: #54C0A1">In Stock</p>
+                <p>Mã sản phẩm: <span th:text="${product.getId()}"></span></p>
+                <p class="product-stock" style="color: #54C0A1">Còn hàng</p>
                 <div class="row ml-1">
                     <h6 class="mr-5">
                         <span th:text="${product.getPrice()} + 'đ' "></span>
@@ -23,7 +23,7 @@
                         <button type="submit" name="productId" class="btn btn-success mx-3"
                                 th:value="${product.getId()}">
                             <i class="fas fa-cart-plus mr-2 fa-lg"></i>
-                            ADD TO CART
+                            Thêm vào giỏ hàng
                         </button>
                     </form>
                 </div>

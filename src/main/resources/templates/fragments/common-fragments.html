@@ -28,21 +28,26 @@
 
 <!--Navbar-->
 <div th:fragment="navbar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-    <div class="container-fluid bg-black header-top d-none d-md-block pb-5 pt-5">
-        <img id="logo-main" src="https://i.ibb.co/7j9ZDNJ/logo-main.png" class="rounded mx-auto d-block"/>
+    <div class="container-fluid bg-black header-top d-none d-md-block">
+<!--        <img id="logo-main" src="https://i.ibb.co/7j9ZDNJ/logo-main.png" class="rounded mx-auto d-block"/>-->
     </div>
     <div class="container-fluid bg-black">
         <nav id="navbar-main" class="container navbar navbar-expand-lg bg-black text-white navbar-main">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link pl-5 pr-5" href="/">HOME</a>
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li>
+                        <a href="/" class="nav-link pl-1 pr-1" style="font-size: 1.5rem; font-weight: bold; color: #007bff; text-decoration: none;">
+                            CITYMOBILE
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-5 pr-5" href="/product">PRODUCTS</a>
+                        <a class="nav-link pl-5 pr-5" href="/">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-5 pr-5" href="/user/contacts">CONTACTS</a>
+                        <a class="nav-link pl-5 pr-5" href="/product">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pl-5 pr-5" href="/user/contacts">Liên hệ</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -55,15 +60,15 @@
                         <li class="nav-item">
                             <a class="nav-link pl-5" href="/user/account">
                                 <i class="fas fa-user mr-2"></i>
-                                MY ACCOUNT
+                                Tài khoản
                             </a>
                         </li>
                         <form id="logout" action="/logout" method="post">
                             <li class="nav-item">
-                                <a class="nav-link" href=# onclick="document.getElementById('logout').submit()">
+                                <a class="nav-link" href="#" onclick="document.getElementById('logout').submit()">
                                     <input type="hidden"/>
                                     <i class="fas fa-sign-out-alt mr-2"></i>
-                                    EXIT
+                                    Đăng xuất
                                 </a>
                             </li>
                         </form>
@@ -72,13 +77,13 @@
                         <li class="nav-item">
                             <a class="nav-link pl-5" href="/login">
                                 <i class="fas fa-sign-in-alt mr-2"></i>
-                                LOGIN
+                                Đăng nhập
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pl-5" href="/registration">
                                 <i class="fas fa-user-plus mr-2"></i>
-                                REGISTRATION
+                                Đăng ký
                             </a>
                         </li>
                     </th:block>

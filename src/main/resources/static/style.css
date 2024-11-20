@@ -256,3 +256,19 @@ ul ul a{
 }
 
 
+.brand-list {
+    gap: 20px; /* Space between items */
+}
+
+.brand-item {
+    text-align: center;
+    width: 150px; /* Fixed width for uniformity */
+}
+
+.brand-item img {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+
+

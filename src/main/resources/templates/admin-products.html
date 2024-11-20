@@ -11,7 +11,7 @@
                 <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
                 <div class="col-md-10">
                     <th:block th:replace="fragments/common-fragments :: info-title(
-                        text='List of products',
+                        text='Danh sách sản phẩm',
                         icon='fas fa-list ml-2 mr-2'
                     )"/>
                     <th:block th:replace="fragments/common-fragments :: alert-message"/>
@@ -32,11 +32,10 @@
                             <div class="col-lg-3"
                                  th:unless="${page.getContent().size() == 0}"
                                  th:each="product : ${page.getContent()}">
-                                <div class="card mb-5 product_list_item_wrapper shadow"
-                                     th:if="${product.getFilename()}">
-                                    <div class="product_list_item_image_wrapper">
+                                <div class="card mb-5 product_list_item_wrapper shadow" th:if="${product.getFilename()}">
+                                    <div class="product_list_item_image_wrapper d-flex justify-content-center align-items-center">
                                         <img th:src="@{/img/{path} (path = ${product.getFilename()})}"
-                                             class="rounded mx-auto w-50 product_list_item_image">
+                                             class="rounded product_list_item_image w-50">
                                     </div>
                                     <div class="card-body text-center">
                                         <h6 th:text="${product.getProductTitle()}"></h6>

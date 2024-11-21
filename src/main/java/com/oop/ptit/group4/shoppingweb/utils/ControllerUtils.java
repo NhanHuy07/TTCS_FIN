@@ -26,7 +26,7 @@ public class ControllerUtils {
         return false;
     }
 
-    public boolean validateInputFields(BindingResult bindingResult, Model model, String attributeKey, Object attributeValue) {
+    public boolean  validateInputFields(BindingResult bindingResult, Model model, String attributeKey, Object attributeValue) {
         if (bindingResult.hasErrors()) {
             model.mergeAttributes(getErrors(bindingResult));
             model.addAttribute(attributeKey, attributeValue);
@@ -57,7 +57,7 @@ public class ControllerUtils {
         return "redirect:" + page;
     }
 
-    private Map<String, String> getErrors(BindingResult bindingResult) {
+    private Map<String, String>     getErrors(BindingResult bindingResult) {
         Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
                 fieldError -> fieldError.getField() + "Error",
                 FieldError::getDefaultMessage

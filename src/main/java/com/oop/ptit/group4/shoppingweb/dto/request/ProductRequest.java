@@ -59,5 +59,5 @@ public class ProductRequest {
 
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
-    private String type;
+    private String model;
 }

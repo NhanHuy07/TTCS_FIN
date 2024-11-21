@@ -18,8 +18,8 @@
                         <div th:replace="~{fragments/common-fragments :: search(
                             options=(${ {
                                 { value: 'email', text: 'Email' },
-                                { value: 'firstName', text: 'First Name' },
-                                { value: 'lastName', text: 'Last Name' }
+                                { value: 'firstName', text: 'Tên' },
+                                { value: 'lastName', text: 'Họ' }
                             } })
                         )}"></div>
                     </form>
@@ -30,10 +30,10 @@
                         <thead class="table-active">
                         <tr>
                             <th>id</th>
-                            <th>First name</th>
-                            <th>Last name</th>
+                            <th>Tên</th>
+                            <th>Họ</th>
                             <th>E-mail</th>
-                            <th>Role</th>
+                            <th>Phân quyền</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -46,7 +46,7 @@
                             <th th:text="${user.getRoles().iterator().next()}"></th>
                             <th>
                                 <a th:href="@{/admin/user/{userId} (userId = ${user.getId()})}">
-                                    Show more
+                                    Xem thêm
                                 </a>
                             </th>
                         </tr>

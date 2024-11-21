@@ -12,7 +12,7 @@
             </div>
             <form action="/product" method="get">
                 <ul class="list-unstyled components">
-                    <h5>Thuương hiệu</h5>
+                    <h5>Thương hiệu</h5>
                     <li class="active mb-2" id="homeSubmenu">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/products-fragments :: products-brand-checkbox('Samsung')"></li>
@@ -32,14 +32,14 @@
                             <li th:insert="fragments/products-fragments :: products-brand-checkbox('Motorola')"></li>
                         </ul>
                     </li>
-                    <h5>Color</h5>
+                    <h5>Màu sắc</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/products-fragments :: products-color-checkbox('light')"></li>
                             <li th:insert="fragments/products-fragments :: products-color-checkbox('dark')"></li>
                         </ul>
                     </li>
-                    <h5>Price</h5>
+                    <h5>Giá</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=0, endingPrice=2000000)"></li>

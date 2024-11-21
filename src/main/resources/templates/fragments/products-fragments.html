@@ -4,11 +4,11 @@
         <div class="card-body text-center">
             <h5 th:text="${product.getProductTitle()}"></h5>
             <h6 th:text="${product.getBrand()}"></h6>
-            <h6><span th:text="${product.getPrice()}"></span> VND</h6>
+            <h6><span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')}"></span> VND</h6>
         </div>
         <div class="text-center align-items-end mb-3">
             <a th:href="@{/product/{productId} (productId = ${product.getId()})}" class="btn btn-dark">
-                SHOW MORE
+                Xem chi tiết
             </a>
         </div>
     </div>

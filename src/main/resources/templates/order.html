@@ -12,7 +12,7 @@
                 <div class="col-md-10">
                     <div class="container mb-5">
                         <th:block th:replace="fragments/common-fragments :: info-title(
-                            text='Order #' + ${order.getId()},
+                            text='Đơn hàng số #' + ${order.getId()},
                             titleClass='text-center',
                             icon='fas fa-shopping-bag'
                         )"/>
@@ -38,7 +38,7 @@
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Mã đặt hàng', text=${order.getId()})"/>
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Ngày', text=${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')})"/>
                                 <h4 class="manage_user_order_summary">
-                                    Order summary:
+                                    Tổng số tiền phải thanh toán:
                                     <span class="manage_user_order_summary_price" th:text="${order.getTotalPrice()} + ' VND'"></span>
                                 </h4>
                             </div>

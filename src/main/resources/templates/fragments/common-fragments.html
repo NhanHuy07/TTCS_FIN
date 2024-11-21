@@ -11,6 +11,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <style>
+        .footer-container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically by default */
+            align-items: center; /* Center items horizontally */
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between; /* Space between (1) and (2) */
+            width: 100%; /* Ensure it spans the container width */
+            max-width: 1200px; /* Optional, limit the width for large screens */
+            padding: 0 20px; /* Add some horizontal padding */
+        }
+
+        .footer-left,
+        .footer-right {
+            flex: 1; /* Allow (1) and (2) to take equal space */
+        }
+
+        .footer-right {
+            text-align: right; /* Align text to the right */
+        }
+
+        .footer-center {
+            text-align: center; /* Center text horizontally */
+            margin-top: 20px; /* Add some space above */
+        }
+
+        .footer-center p {
+            margin: 0; /* Remove default margins */
+        }
+
+        .footer-right a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .footer-right i {
+            margin-right: 10px;
+        }
+
+        .footer-right i:last-child {
+            margin-right: 0; /* Remove margin for the last icon */
+        }
+    </style>
 </head>
 
 <!--Scripts-->
@@ -175,29 +223,39 @@
 </th:block>
 
 <!--footer-->
-<footer th:fragment="footer" class="page-footer p-5 bg-black text-white">
-    <div class="container">
-        <div class="d-flex justify-content-between">
+<footer th:fragment="footer" class="page-footer bg-black text-white">
+    <div class="footer-container">
+        <div class="footer-top">
+            <!-- (1) Left Content -->
             <div class="footer-left">
-                <h3>Mobile Phone</h3>
-                <p>(0337)-690-341</p>
-                <br/>
-                <p>from 08:00 to 20:00 without breaks and weekends</p>
+<!--                <h3>CityMobile</h3>-->
+                <h3 class="nav-link" style="font-size: 1.5rem; font-weight: bold; color: #007bff; text-decoration: none;">
+                    CITYMOBILE
+                </h3>
+                <p style="padding-left: 15px">(0337)-690-341</p>
+                <p style="padding-left: 15px">Giờ làm việc: 08:00 đến 20:00 tất cả các ngày trong tuần</p>
             </div>
+
+            <!-- (2) Right Content -->
             <div class="footer-right">
                 <h3>Social networks</h3>
                 <a href="#">
-                    <i class="fab fa-linkedin fa-2x mr-3" style="color:white"></i>
+                    <i class="fab fa-linkedin fa-2x" style="color:white"></i>
                 </a>
-                <a href="#"><i class="fab fa-facebook-f fa-2x mr-3" style="color:white"></i></a>
-                <a href="#"><i class="fab fa-twitter fa-2x mr-3" style="color:white"></i></a>
+                <a href="#">
+                    <i class="fab fa-facebook-f fa-2x" style="color:white"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter fa-2x" style="color:white"></i>
+                </a>
             </div>
         </div>
-        <div class="mx-auto" style="width: 200px;">
+
+        <!-- (3) Centered Below -->
+        <div class="footer-center">
             <p>CITYMOBILE-All rights reserved © 2024 - Designed by Team 4 OOP 4</p>
         </div>
     </div>
-    </nav>
 </footer>
 
 <!-- info-title -->

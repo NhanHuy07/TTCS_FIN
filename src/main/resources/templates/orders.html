@@ -34,11 +34,11 @@
                     <table th:unless="${page.getContent().size() == 0}" class="table mt-4 border text-center">
                         <thead class="table-active">
                         <tr>
-                            <th>Order №</th>
-                            <th>Date</th>
-                            <th>Customer</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày</th>
+                            <th>Tên khách hàng</th>
                             <th>Email</th>
-                            <th>Sum</th>
+                            <th>Tổng số tiền</th>
                             <th></th>
                         </tr>
                         <tbody th:each="order : ${page.getContent()}">
@@ -51,14 +51,14 @@
                             <th:block sec:authorize="hasAuthority('ADMIN')">
                                 <th>
                                     <a th:href="@{/admin/order/{orderId} (orderId = ${order.getId()})}">
-                                        Show more
+                                        Xem thêm
                                     </a>
                                 </th>
                             </th:block>
                             <th:block sec:authorize="hasAuthority('USER')">
                                 <th>
                                     <a th:href="@{/order/{orderId} (orderId = ${order.getId()})}">
-                                        Show more
+                                        Xem thêm
                                     </a>
                                 </th>
                             </th:block>

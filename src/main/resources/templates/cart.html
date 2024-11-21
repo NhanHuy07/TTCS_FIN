@@ -45,14 +45,14 @@
                 <hr class="my-3"/>
                 <div class="row">
                     <div class="col-9">
-                        <p class="h5 text-right">Total: <span th:text="${#aggregates.sum(products.![price])}"></span> VND</p>
+                        <p class="h5 text-right">Tổng số tiền: <span th:text="${#aggregates.sum(products.![price])}"></span> VND</p>
                     </div>
                     <div class="col-3">
                         <form action="/order" method="get" class="ml-3">
                             <div class="form-row">
                                 <button class="btn btn-success">
                                     <i class="fas fa-shopping-bag mr-2"></i>
-                                    Checkout
+                                    Thanh toán
                                 </button>
                             </div>
                         </form>

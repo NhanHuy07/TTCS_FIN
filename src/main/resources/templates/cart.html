@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-2">
                             <div class="card-body">
-                                <h5 class="card-title"><span th:text="${product.getPrice()}"></span> VND</h5>
+                                <h5 class="card-title"><span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></span></h5>
                                 <form class="d-inline" action="/cart/remove" method="post">
                                     <button class="btn btn-warning mb-2">
                                         <i class="far fa-minus-square mr-2"></i>
@@ -45,7 +45,7 @@
                 <hr class="my-3"/>
                 <div class="row">
                     <div class="col-9">
-                        <p class="h5 text-right">Tổng số tiền: <span th:text="${#aggregates.sum(products.![price])}"></span> VND</p>
+                        <p class="h5 text-right">Tổng số tiền: <span th:text="${#numbers.formatDecimal(#aggregates.sum(products.![price]), 0, 'COMMA', 0, 'POINT')}"></span> VND</p>
                     </div>
                     <div class="col-3">
                         <form action="/order" method="get" class="ml-3">

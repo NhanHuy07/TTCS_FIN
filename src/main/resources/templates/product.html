@@ -17,7 +17,7 @@
                 <p class="product-stock" style="color: #54C0A1">Còn hàng</p>
                 <div class="row ml-1">
                     <h6 class="mr-5">
-                        <span th:text="${product.getPrice()} + 'đ' "></span>
+                        <span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></span>
                     </h6>
                     <form action="/cart/add" method="post">
                         <button type="submit" name="productId" class="btn btn-success mx-3"
@@ -39,7 +39,7 @@
                         <td th:text="${product.getBrand()}"></td>
                     </tr>
                     <tr>
-                        <td>Mã sản phẩm:</td>
+                        <td>Loại sản phẩm:</td>
                         <td th:text="${product.getModel()}"></td>
                     </tr>
                     <tr>

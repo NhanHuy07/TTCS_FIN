@@ -38,11 +38,21 @@
     </label>
 </div>
 
+<!--<div th:fragment="products-price-checkbox" class="checkbox">-->
+<!--    <label>-->
+<!--        <input th:value="${startingPrice}" type="radio" name="price" onChange="this.form.submit()"-->
+<!--               th:checked="${searchRequest.getPrice() != null ? startingPrice == searchRequest.getPrice() : false}"/>-->
+<!--        <span class="cr"><i class="cr-icon fas fa-check"></i></span>-->
+<!--        <th:block th:text="${startingPrice == 0} ? 'any' : ${startingPrice} + ' - ' + ${endingPrice}"></th:block>-->
+<!--    </label>-->
+<!--</div>-->
+
 <div th:fragment="products-price-checkbox" class="checkbox">
     <label>
         <input th:value="${startingPrice}" type="radio" name="price" onChange="this.form.submit()"
                th:checked="${searchRequest.getPrice() != null ? startingPrice == searchRequest.getPrice() : false}"/>
         <span class="cr"><i class="cr-icon fas fa-check"></i></span>
-        <th:block th:text="${startingPrice == 0} ? 'any' : ${startingPrice} + ' - ' + ${endingPrice}"></th:block>
+        <th:block th:text="${startingPrice == 0 ? 'Bất kỳ' : 'Từ ' + #numbers.formatDecimal(startingPrice, 0, 'COMMA', 0, 'POINT') + ' - ' + #numbers.formatDecimal(endingPrice, 0, 'COMMA', 0, 'POINT')}"></th:block>
     </label>
 </div>
+

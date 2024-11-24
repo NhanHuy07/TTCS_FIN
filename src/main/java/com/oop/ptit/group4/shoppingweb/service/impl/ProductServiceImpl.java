@@ -31,14 +31,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getPopularProducts() {
-        List<Long> productIds = Arrays.asList(26L, 43L, 46L, 106L, 34L, 76L, 82L, 85L, 27L, 39L, 79L, 86L);
+        List<Long> productIds = Arrays.asList(26L, 43L, 46L, 16L, 34L, 7L, 8L, 5L, 27L, 39L, 9L, 6L);
         return productRepository.findByIdIn(productIds);
     }
 
     @Override
     public Page<Product> getProductsByFilterParams(SearchRequest request, Pageable pageable) {
         Integer startingPrice = request.getPrice();
-        Integer endingPrice = startingPrice + (startingPrice == 0 ? 100000000 : 1000000000);
+        Integer endingPrice = startingPrice + (startingPrice == 0 ? 1000000000 : 100000000);
         return productRepository.getProductsByFilterParams(
                 request.getBrands(),
                 request.getColors(),

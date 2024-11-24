@@ -88,7 +88,7 @@
                                         <div class="card-body text-center">
                                             <h5 th:text="${product.getProductTitle()}"></h5>
                                             <h6 th:text="${product.getBrand()}"></h6>
-                                            <h6><span th:text="${product.getPrice()}"></span> VND</h6>
+                                            <h6><span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></span></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                         </button>
                         <input type="hidden" name="totalPrice" th:value="${#aggregates.sum(products.![price])}">
                         <div class="row">
-                            <h4>Số tiền phải trả:  <span th:text="${#aggregates.sum(products.![price])}"></span> VND</h4>
+                            <h4>Số tiền phải trả:  <span th:text="${#numbers.formatDecimal(#aggregates.sum(products.![price]), 0, 'COMMA', 0, 'POINT')}"></span> VND</h4>
                         </div>
                     </div>
                 </div>

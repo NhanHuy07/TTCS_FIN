@@ -8,5 +8,4 @@ public class SuccessMessage {
     public static final String ACTIVATION_CODE_SEND = "Mã kích hoạt đã được gửi tới email của bạn";
     public static final String USER_ACTIVATED = "Người dùng đã được kích hoạt thành công.";
     public static final String USER_UPDATED = "Người dùng đã được cập nhật thành công.";
-
 }

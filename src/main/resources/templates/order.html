@@ -39,7 +39,9 @@
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Ngày', text=${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')})"/>
                                 <h4 class="manage_user_order_summary">
                                     Tổng số tiền phải thanh toán:
-                                    <span class="manage_user_order_summary_price" th:text="${order.getTotalPrice()} + ' VND'"></span>
+<!--                                    <span class="manage_user_order_summary_price" th:text="${order.getTotalPrice()} + ' VND'"></span>-->
+                                    <span class="manage_user_order_summary_price"
+                                          th:text="${#numbers.formatDecimal(order.getTotalPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></span>
                                 </h4>
                             </div>
                         </div>
@@ -59,7 +61,7 @@
                                 </th>
                                 <th th:text="${product.getBrand()}"></th>
                                 <th th:text="${product.getProductTitle()}"></th>
-                                <th th:text="${product.getPrice()} + ' VND'"></th>
+                                <th th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></th>
                             </tr>
                             </tbody>
                         </table>

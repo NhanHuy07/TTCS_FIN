@@ -31,16 +31,16 @@ public class Product {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @Column(name = "product_color", nullable = false) // sua thanh mau
+    @Column(name = "product_color", nullable = false)
     private String productColor;
 
-    @Column(name = "battery_capacity", nullable = false) // batteryCapacity
+    @Column(name = "battery_capacity", nullable = false)
     private String batteryCapacity;
 
-    @Column(name = "storage_capacity", nullable = false) // storageCapacity
+    @Column(name = "storage_capacity", nullable = false)
     private String storageCapacity;
 
-    @Column(name = "ram_capacity", nullable = false) // ramCapacity
+    @Column(name = "ram_capacity", nullable = false)
     private String ramCapacity;
 
     @Column(name = "description")
@@ -52,9 +52,9 @@ public class Product {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "operating_system", nullable = false) //operatingSystem
+    @Column(name = "operating_system", nullable = false)
     private String operatingSystem;
 
-    @Column(name = "model", nullable = false) // model
+    @Column(name = "model", nullable = false)
     private String model;
 }

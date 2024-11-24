@@ -47,7 +47,7 @@
                             <th th:text="${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')}"></th>
                             <th th:text="${order.getFirstName() + ' ' + order.getLastName()}"></th>
                             <th th:text="${order.getEmail()}"></th>
-                            <th th:text="${order.getTotalPrice()} + ' VND'"></th>
+                            <th th:text="${#numbers.formatDecimal(order.getTotalPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></th>
                             <th:block sec:authorize="hasAuthority('ADMIN')">
                                 <th>
                                     <a th:href="@{/admin/order/{orderId} (orderId = ${order.getId()})}">

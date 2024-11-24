@@ -18,7 +18,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "(CASE " +
             "   WHEN :searchType = 'productTitle' THEN UPPER(product.productTitle) " +
             "   WHEN :searchType = 'country' THEN UPPER(product.country) " +
-            "   ELSE product.brand " +
+            "   ELSE UPPER(product.brand) " +
             "END) " +
             "LIKE UPPER(CONCAT('%',:text,'%')) " +
             "ORDER BY product.price ASC")

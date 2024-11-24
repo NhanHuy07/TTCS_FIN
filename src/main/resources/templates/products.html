@@ -42,11 +42,12 @@
                     <h5>Giá</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=0, endingPrice=2000000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=10000000, endingPrice=30000000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=30000000, endingPrice=70000000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=70000000, endingPrice=160000000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=160000000, endingPrice=1000000000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=0, endingPrice=100000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=100000, endingPrice=999000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=1000000, endingPrice=4999000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=5000000, endingPrice=9999000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=10000000, endingPrice=19999000)"></li>
+                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=20000000, endingPrice=40000000)"></li>
                         </ul>
                     </li>
                 </ul>

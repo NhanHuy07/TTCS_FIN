@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Page<Product> getProductsByFilterParams(SearchRequest request, Pageable pageable) {
         Integer startingPrice = request.getPrice();
-        Integer endingPrice = startingPrice + (startingPrice == 0 ? 1000000000 : 100000000);
+        Integer endingPrice = startingPrice + (startingPrice == 0 ? 40000000 : 5000000);
         return productRepository.getProductsByFilterParams(
                 request.getBrands(),
                 request.getColors(),

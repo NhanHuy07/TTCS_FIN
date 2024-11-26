@@ -18,87 +18,87 @@
                     <form method="post" action="/admin/add/product" enctype="multipart/form-data">
                         <div class="form row">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Product title',
+                                title='Tên sản phẩm',
                                 name='productTitle',
-                                placeholder='Enter the product title',
+                                placeholder='Nhập tên sản phẩm',
                                 value=(${product} ? ${product.productTitle} : ''),
                                 error=(${productTitleError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Brand',
+                                title='Thương hiệu',
                                 name='brand',
-                                placeholder='Enter the brand',
+                                placeholder='Nhập thương hiệu',
                                 value=(${product} ? ${product.brand} : ''),
                                 error=(${brandError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Release year',
+                                title='Năm sản xuất',
                                 name='year',
-                                placeholder='Enter the release year',
+                                placeholder='Nhập năm sản xuất',
                                 value=(${product} ? ${product.year} : ''),
                                 error=(${yearError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Manufacturer country',
+                                title='Quốc gia sản xuất',
                                 name='country',
-                                placeholder='Manufacturer country',
+                                placeholder='Nhập quốc gia',
                                 value=(${product} ? ${product.country} : ''),
                                 error=(${countryError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-select(
-                                title='Product model',
+                                title='Loại',
                                 name='model',
                                 options=(${ {'Old', 'New 99%'} }),
                                 error=(${modelError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Operating System',
+                                title='Hệ điều hành',
                                 name='operatingSystem',
-                                placeholder='Enter the Operating System',
+                                placeholder='Nhập hệ điều hành',
                                 value=(${product} ? ${product.operatingSystem} : ''),
                                 error=(${operatingSystemError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-select(
-                                title='Color',
+                                title='Màu sắc',
                                 name='productColor',
                                 options=(${ {'light', 'dark'} }),
                                 error=(${productColorError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Battery Capacity',
+                                title='Dung lượng pin',
                                 name='batteryCapacity',
-                                placeholder='Enter the Battery Capacity',
+                                placeholder='Nhập dung lượng pin',
                                 value=(${product} ? ${product.batteryCapacity} : ''),
                                 error=(${batteryCapacityError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Storage Capacity',
+                                title='Bộ nhớ',
                                 name='storageCapacity',
-                                placeholder='Enter the Storage Capacity',
+                                placeholder='Nhập dung lượng bộ nhớ',
                                 value=(${product} ? ${product.storageCapacity} : ''),
                                 error=(${storageCapacityError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Ram Capacity',
+                                title='Dung lượng RAM',
                                 name='ramCapacity',
-                                placeholder='Enter the Ram Capacity',
+                                placeholder='Nhập dung lượng RAM',
                                 value=(${product} ? ${product.ramCapacity} : ''),
                                 error=(${ramCapacityError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Price',
+                                title= 'Giá',
                                 name='price',
-                                placeholder='Enter the price',
+                                placeholder='Nhập giá',
                                 value=(${product} ? ${product.price} : ''),
                                 error=(${priceError})
                             )"/>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <th:block th:replace="fragments/common-fragments :: icon-button(
-                            text='Add',
+                            text='Thêm',
                             buttonClassName='mt-3',
                             icon='fas fa-plus-square mr-2'
                         )"/>

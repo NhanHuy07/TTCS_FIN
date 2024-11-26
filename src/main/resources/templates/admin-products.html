@@ -18,9 +18,9 @@
                     <form class="my-3" action="/admin/products/search" method="get" style="justify-content: center">
                         <div th:insert="~{fragments/common-fragments :: search(
                             options=(${ {
-                                { value: 'brand', text: 'Brand' },
-                                { value: 'productTitle', text: 'Product title' },
-                                { value: 'country', text: 'Manufacturer country' }
+                                { value: 'brand', text: 'Thương hiệu' },
+                                { value: 'productTitle', text: 'Tên sản phẩm' },
+                                { value: 'country', text: 'Quốc gia sản xuất' }
                             } })
                         )}"></div>
                     </form>
@@ -40,13 +40,13 @@
                                     <div class="card-body text-center">
                                         <h6 th:text="${product.getProductTitle()}"></h6>
                                         <h6 th:text="${product.getBrand()}"></h6>
-                                        <h6><span th:text="${product.getPrice()}"></span> VND</h6>
+                                        <h6><span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')}"></span> VND</h6>
                                     </div>
                                     <div class="text-center align-items-end mb-3">
                                         <a th:href="@{/admin/product/{productId} (productId = ${product.getId()})}"
                                            class="btn btn-dark">
                                             <i class="fas fa-edit"></i>
-                                            Edit
+                                            Sửa
                                         </a>
                                     </div>
                                 </div>

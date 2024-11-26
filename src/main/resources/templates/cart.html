@@ -22,10 +22,20 @@
                         </div>
                         <div class="col-7">
                             <div class="card-body">
-                                <h5 class="card-title"
-                                    th:text="${product.getBrand() + ' ' + product.getProductTitle()}"></h5>
-                                <p class="card-text" th:text="${product.getModel()}"></p>
-                                <p class="card-text"><span th:text="${product.getOperatingSystem()}"></span></p>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong>Thương hiệu:</strong> <span th:text="${product.getBrand()}"></span>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Tên sản phẩm:</strong> <span th:text="${product.getProductTitle()}"></span>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Loại:</strong> <span th:text="${product.getModel()}"></span>
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Hệ điều hành:</strong> <span th:text="${product.getOperatingSystem()}"></span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-2">

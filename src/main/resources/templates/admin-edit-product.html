@@ -15,69 +15,69 @@
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Product title',
+                                    title='Tên sản phẩm',
                                     name='productTitle',
                                     value=(${product.getProductTitle()}),
                                     error=(${productTitleError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Brand',
+                                    title='Thương hiệu',
                                     name='brand',
                                     value=(${product.getBrand()}),
                                     error=(${brandError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Release year',
+                                    title='Năm sản xuất',
                                     name='year',
                                     value=(${product.getYear()}),
                                     error=(${yearError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Country',
+                                    title='Quốc gia',
                                     name='country',
                                     value=(${product.getCountry()}),
                                     error=(${countryError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-select(
-                                    title='Product model',
+                                    title='Loại',
                                     name='model',
                                     options=(${ {'Old', 'New 99%'} }),
                                     value=(${product.getModel()}),
                                     error=(${modelError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Operating System',
+                                    title='Hệ điều hành',
                                     name='operatingSystem',
                                     value=(${product.getOperatingSystem()}),
                                     error=(${operatingSystemError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-select(
-                                    title='Color',
+                                    title='Màu sắc',
                                     name='productColor',
                                     options=(${ {'light', 'dark'} }),
                                     value=(${product.getProductColor()}),
                                     error=(${productColorError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Battery Capacity',
+                                    title='Dung lượng pin',
                                     name='batteryCapacity',
                                     value=(${product.getBatteryCapacity()}),
                                     error=(${batteryCapacityError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Storage Capacity',
+                                    title='Bộ nhớ',
                                     name='storageCapacity',
                                     value=(${product.getStorageCapacity()}),
                                     error=(${storageCapacityError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Ram Capacity',
+                                    title='RAM',
                                     name='ramCapacity',
                                     value=(${product.getRamCapacity()}),
                                     error=(${ramCapacityError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Price',
+                                    title='Giá',
                                     name='price',
                                     value=(${product.getPrice()}),
                                     error=(${priceError})
@@ -93,7 +93,7 @@
                         </div>
                         <input type="hidden" name="id" th:value="${product.getId()}"/>
                         <input type="hidden" name="filename" th:value="${product.getFilename()}"/>
-                        <th:block th:replace="fragments/common-fragments :: icon-button(text='Edit', icon='fas fa-edit mr-2')"/>
+                        <th:block th:replace="fragments/common-fragments :: icon-button(text='Sửa', icon='fas fa-edit mr-2')"/>
                     </form>
                 </div>
             </div>

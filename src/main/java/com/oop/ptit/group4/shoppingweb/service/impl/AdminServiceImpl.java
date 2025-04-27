@@ -81,21 +81,21 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Product getProductById(Long productId) {
         return productRepository.findById(productId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.MOBILE_PHONE_NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.LAPTOP_NOT_FOUND));
     }
 
     @Override
     @SneakyThrows
     @Transactional
     public MessageResponse editProduct(ProductRequest productRequest, MultipartFile file) {
-        return saveProduct(productRequest, file, SuccessMessage.MOBILE_PHONE_EDITED);
+        return saveProduct(productRequest, file, SuccessMessage.LAPTOP_EDITED);
     }
 
     @Override
     @SneakyThrows
     @Transactional
     public MessageResponse addProduct(ProductRequest productRequest, MultipartFile file) {
-        return saveProduct(productRequest, file, SuccessMessage.MOBILE_PHONE_ADDED);
+        return saveProduct(productRequest, file, SuccessMessage.LAPTOP_ADDED);
     }
 
     @Override

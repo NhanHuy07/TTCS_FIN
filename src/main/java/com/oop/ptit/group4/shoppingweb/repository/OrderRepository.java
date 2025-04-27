@@ -45,3 +45,4 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             "LIKE UPPER(CONCAT('%',:text,'%'))")
     Page<Order> searchUserOrders(Long userId, String searchType, String text, Pageable pageable);
 }
+

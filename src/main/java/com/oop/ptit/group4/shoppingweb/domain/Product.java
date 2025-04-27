@@ -25,36 +25,42 @@ public class Product {
     @Column(name = "brand", nullable = false)
     private String brand;
 
-    @Column(name = "year", nullable = false)
-    private Integer year;
-
-    @Column(name = "country", nullable = false)
-    private String country;
-
     @Column(name = "product_color", nullable = false)
     private String productColor;
 
-    @Column(name = "battery_capacity", nullable = false)
-    private String batteryCapacity;
+    @Column(name = "cpu")
+    private String cpu;
 
-    @Column(name = "storage_capacity", nullable = false)
-    private String storageCapacity;
+    @Column(name = "ram")
+    private String ram;
 
-    @Column(name = "ram_capacity", nullable = false)
-    private String ramCapacity;
+    @Column(name = "hard_disk")
+    private String hardDisk;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "card")
+    private String card;
+
+    @Column(name = "screen")
+    private String screen;
+
+    @Column(name = "connection_port")
+    private String connectionPort;
+
+    @Column(name = "webcam")
+    private String webCam;
+
+    @Column(name = "battery", nullable = false)
+    private String battery;
 
     @Column(name = "filename")
     private String filename;
 
     @Column(name = "price", nullable = false)
-    private Integer price;
+    private Long price;
+
+    @Column(name = "weight")
+    private String weight;
 
     @Column(name = "operating_system", nullable = false)
     private String operatingSystem;
-
-    @Column(name = "model", nullable = false)
-    private String model;
 }

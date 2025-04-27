@@ -8,7 +8,8 @@ import java.util.List;
 public class SearchRequest {
     private List<String> brands;
     private List<String> colors;
-    private Integer price = 0;
+    private Long price = 0L;
     private String searchType;
     private String text;
 }
+

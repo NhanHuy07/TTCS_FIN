@@ -25,24 +25,24 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/",
-                            "/registration/**",
-                            "/user/contacts",
-                            "/img/**",
-                            "/static/**",
-                            "/auth/**",
-                            "/menu/**",
-                            "/product/**"
-                    ).permitAll()
-                    .anyRequest().authenticated()
+                .antMatchers("/",
+                        "/registration/**",
+                        "/user/contacts",
+                        "/img/**",
+                        "/static/**",
+                        "/auth/**",
+                        "/menu/**",
+                        "/product/**"
+                ).permitAll()
+                .anyRequest().authenticated()
                 .and()
-                    .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/user/account")
-                    .permitAll()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/user/account")
+                .permitAll()
                 .and()
-                    .logout()
-                    .permitAll()
+                .logout()
+                .permitAll()
                 .and().csrf().disable();
     }
 

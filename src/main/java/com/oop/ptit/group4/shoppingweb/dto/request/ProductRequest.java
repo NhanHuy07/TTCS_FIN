@@ -22,10 +22,6 @@ public class ProductRequest {
     @Length(max = 255)
     private String brand;
 
-    @NotNull(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
-    @Min(value = 4, message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
-    private Integer year;
-
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
     private String country;
@@ -36,28 +32,49 @@ public class ProductRequest {
 
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
-    private String batteryCapacity;
+    private String cpu;
 
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
-    private String storageCapacity;
+    private String ram;
 
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
-    private String ramCapacity;
+    private String hardDisk;
 
-    private String description;
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
+    private String card;
+
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
+    private String screen;
+
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
+    private String connectionPort;
+
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
+    private String webCam;
+
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
+    private String battery;
+
+    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Length(max = 255)
     private String filename;
 
     @NotNull(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
-    @Min(value = 1, message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
-    private Integer price;
+    @Length(max = 255)
+    private String weight;
 
     @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
     @Length(max = 255)
     private String operatingSystem;
 
-    @NotBlank(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
-    @Length(max = 255)
-    private String model;
+    @NotNull(message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    @Min(value = 1, message = ErrorMessage.FILL_IN_THE_INPUT_FIELD)
+    private Long price;
 }

@@ -8,7 +8,7 @@
     <div class="py-5">
         <div class="container py-1 bg-white shadow-sm card-height">
             <div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}" class="alert alert-danger col-sm-8 mt-3" role="alert">
-                Email hoặc mật khẩu không hợp lệ!
+                Email hoặc mật khẩu không đúng!
             </div>
             <th:block th:replace="fragments/common-fragments :: alert-message"/>
             <form method="post" action="/login">

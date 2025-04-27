@@ -8,7 +8,7 @@ public class ErrorMessage {
     public static final String INVALID_PASSWORD_CODE = "Mã đặt lại mật khẩu không hợp lệ!";
     public static final String ACTIVATION_CODE_NOT_FOUND = "Không tìm thấy mã kích hoạt.";
     public static final String ORDER_NOT_FOUND = "Không tìm thấy đơn hàng.";
-    public static final String MOBILE_PHONE_NOT_FOUND = "Không tìm thấy số điện thoại di động.";
+    public static final String LAPTOP_NOT_FOUND = "Không tìm thấy sản phẩm.";
     public static final String USER_NOT_FOUND = "Không tìm thấy người dùng.";
     public static final String EMPTY_FIRST_NAME = "Họ và tên đệm không được để trống";
     public static final String EMPTY_LAST_NAME = "Tên không được để trống";

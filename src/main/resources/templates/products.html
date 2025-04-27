@@ -15,36 +15,27 @@
                     <h5>Thương hiệu</h5>
                     <li class="active mb-2" id="homeSubmenu">
                         <ul class="list-unstyled">
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Samsung')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Xiaomi')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Oppo')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Nokia')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Apple')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Mobiistar')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Huawei')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Realme')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Philips')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Vivo')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Mobell')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Itel')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Coolpad')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('HTC')"></li>
-                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Motorola')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('HP')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Dell')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Lenovo')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Asus')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Acer')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Msi')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Gigabyte')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('LG')"></li>
+                            <li th:insert="fragments/products-fragments :: products-brand-checkbox('Macbook')"></li>
                         </ul>
                     </li>
-                    <h5>Màu sắc</h5>
-                    <li class="active mb-2">
-                        <ul class="list-unstyled">
-                            <li th:insert="fragments/products-fragments :: products-color-checkbox('light')"></li>
-                            <li th:insert="fragments/products-fragments :: products-color-checkbox('dark')"></li>
-                        </ul>
-                    </li>
+<!--                    <h5>Màu sắc</h5>-->
+<!--                    <li class="active mb-2">-->
+<!--                        <ul class="list-unstyled">-->
+<!--                            <li th:insert="fragments/products-fragments :: products-color-checkbox('light')"></li>-->
+<!--                            <li th:insert="fragments/products-fragments :: products-color-checkbox('dark')"></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
                     <h5>Giá</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=0, endingPrice=100000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=100000, endingPrice=5000000)"></li>
-                            <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=5000000, endingPrice=10000000)"></li>
                             <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=10000000, endingPrice=15000000)"></li>
                             <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=15000000, endingPrice=20000000)"></li>
                             <li th:insert="fragments/products-fragments :: products-price-checkbox(startingPrice=25000000, endingPrice=30000000)"></li>
@@ -61,7 +52,7 @@
                         options=(${ {
                             { value: 'brand', text: 'Thương hiệu' },
                             { value: 'productTitle', text: 'Tên sản phẩm' },
-                            { value: 'country', text: 'Quốc gia sản xuất' }
+                            { value: 'color', text: 'Màu sắc' }
                         } })
                     )}"/>
                 </form>

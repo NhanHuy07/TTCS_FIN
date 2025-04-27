@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Long productId) {
         return productRepository.findById(productId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.MOBILE_PHONE_NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.LAPTOP_NOT_FOUND));
     }
 
     @Override
@@ -37,8 +37,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> getProductsByFilterParams(SearchRequest request, Pageable pageable) {
-        Integer startingPrice = request.getPrice();
-        Integer endingPrice = startingPrice + (startingPrice == 0 ? 40000000 : 5000000);
+        Long startingPrice = request.getPrice();
+        Long endingPrice = startingPrice + (startingPrice == 0 ? 40000000 : 5000000);
         return productRepository.getProductsByFilterParams(
                 request.getBrands(),
                 request.getColors(),

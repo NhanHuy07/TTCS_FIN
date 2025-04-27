@@ -23,24 +23,25 @@ create table orders_products
     order_id    int8 not null,
     products_id int8 not null
 );
-create table products
-(
-    id                     int8 not null,
-    country                varchar(255) not null,
-    description            varchar(255),
-    filename               varchar(255),
-    ram_capacity   varchar(255) not null,
-    storage_capacity varchar(255) not null,
-    battery_capacity    varchar(255) not null,
-    product_color         varchar(255) not null,
-    product_title          varchar(255) not null,
-    brand               varchar(255) not null,
-    price                  int4 not null,
-    model                   varchar(255) not null,
-    operating_system                 varchar(255) not null,
-    year                   int4 not null,
-    primary key (id)
+CREATE TABLE products (
+    id BIGINT PRIMARY KEY,
+    product_title VARCHAR(255) NOT NULL,
+    brand VARCHAR(255) NOT NULL,
+    product_color VARCHAR(255) NOT NULL,
+    cpu VARCHAR(255),
+    ram VARCHAR(255),
+    hard_disk VARCHAR(255),
+    card VARCHAR(255),
+    screen VARCHAR(255),
+    connection_port VARCHAR(255),
+    webcam VARCHAR(255),
+    battery VARCHAR(255) NOT NULL,
+    filename VARCHAR(255),
+    price BIGINT NOT NULL,
+    weight VARCHAR(255),
+    operating_system VARCHAR(255) NOT NULL
 );
+
 create table user_role
 (
     user_id int8 not null,

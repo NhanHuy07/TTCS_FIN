@@ -57,7 +57,7 @@ public class ControllerUtils {
         return "redirect:" + page;
     }
 
-    private Map<String, String>     getErrors(BindingResult bindingResult) {
+    private Map<String, String> getErrors(BindingResult bindingResult) {
         Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
                 fieldError -> fieldError.getField() + "Error",
                 FieldError::getDefaultMessage

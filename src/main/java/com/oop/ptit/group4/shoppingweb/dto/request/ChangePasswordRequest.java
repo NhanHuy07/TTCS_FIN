@@ -14,3 +14,4 @@ public class ChangePasswordRequest {
     @Size(min = 6, max = 16, message = ErrorMessage.PASSWORD2_CHARACTER_LENGTH)
     private String password2;
 }
+

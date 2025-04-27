@@ -13,7 +13,7 @@
             <div class="col-md-7">
                 <h2 th:text="${product.getProductTitle()}"></h2>
                 <h3 th:text="${product.getBrand()}"></h3>
-                <p>Mã sản phẩm: <span th:text="${product.getId()}"></span></p>
+<!--                <p>Mã sản phẩm: <span th:text="${product.getId()}"></span></p>-->
                 <p class="product-stock" style="color: #54C0A1">Còn hàng</p>
                 <div class="row ml-1">
                     <h6 class="mr-5">
@@ -32,43 +32,55 @@
                     <tbody>
                     <tr>
                         <td>Tên sản phẩm:</td>
-                        <td th:text="${product.getProductTitle()}"></td>
+                        <td th:text="${product.productTitle}"></td>
                     </tr>
                     <tr>
                         <td>Thương hiệu:</td>
-                        <td th:text="${product.getBrand()}"></td>
-                    </tr>
-                    <tr>
-                        <td>Loại sản phẩm:</td>
-                        <td th:text="${product.getModel()}"></td>
-                    </tr>
-                    <tr>
-                        <td>Năm ra mắt:</td>
-                        <td th:text="${product.getYear()}"></td>
-                    </tr>
-                    <tr>
-                        <td>Hệ điều hành:</td>
-                        <td><span th:text="${product.getOperatingSystem()}"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Đất nước sản xuất:</td>
-                        <td th:text="${product.getCountry()}"></td>
+                        <td th:text="${product.brand}"></td>
                     </tr>
                     <tr>
                         <td>Màu sắc:</td>
-                        <td th:text="${product.getProductColor()}"></td>
+                        <td th:text="${product.productColor}"></td>
                     </tr>
                     <tr>
-                        <td>Tuổi thọ pin:</td>
-                        <td th:text="${product.getBatteryCapacity()}"></td>
+                        <td>CPU:</td>
+                        <td th:text="${product.cpu}"></td>
                     </tr>
                     <tr>
-                        <td>Dung lượng lưu trữ:</td>
-                        <td th:text="${product.getStorageCapacity()}"></td>
+                        <td>RAM:</td>
+                        <td th:text="${product.ram}"></td>
                     </tr>
                     <tr>
-                        <td>Dung lượng RAM:</td>
-                        <td th:text="${product.getRamCapacity()}"></td>
+                        <td>Ổ cứng:</td>
+                        <td th:text="${product.hardDisk}"></td>
+                    </tr>
+                    <tr>
+                        <td>Card đồ họa:</td>
+                        <td th:text="${product.card}"></td>
+                    </tr>
+                    <tr>
+                        <td>Màn hình:</td>
+                        <td th:text="${product.screen}"></td>
+                    </tr>
+                    <tr>
+                        <td>Cổng kết nối:</td>
+                        <td th:text="${product.connectionPort}"></td>
+                    </tr>
+                    <tr>
+                        <td>Webcam:</td>
+                        <td th:text="${product.webCam}"></td>
+                    </tr>
+                    <tr>
+                        <td>Thông tin pin:</td>
+                        <td th:text="${product.battery}"></td>
+                    </tr>
+                    <tr>
+                        <td>Trọng lượng:</td>
+                        <td th:text="${product.weight} + ' gram'"></td>
+                    </tr>
+                    <tr>
+                        <td>Hệ điều hành:</td>
+                        <td th:text="${product.operatingSystem}"></td>
                     </tr>
                     </tbody>
                 </table>

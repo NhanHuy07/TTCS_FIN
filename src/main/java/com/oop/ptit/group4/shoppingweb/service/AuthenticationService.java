@@ -11,3 +11,4 @@ public interface AuthenticationService {
 
     MessageResponse resetPassword(PasswordResetRequest request);
 }
+

@@ -17,7 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT product FROM Product product WHERE " +
             "(CASE " +
             "   WHEN :searchType = 'productTitle' THEN UPPER(product.productTitle) " +
-            "   WHEN :searchType = 'country' THEN UPPER(product.country) " +
+            "   WHEN :searchType = 'color' THEN UPPER(product.productColor) " +
             "   ELSE UPPER(product.brand) " +
             "END) " +
             "LIKE UPPER(CONCAT('%',:text,'%')) " +
@@ -32,7 +32,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Page<Product> getProductsByFilterParams(
             List<String> brands,
             List<String> colors,
-            Integer priceStart,
-            Integer priceEnd,
+            Long priceStart,
+            Long priceEnd,
             Pageable pageable);
 }

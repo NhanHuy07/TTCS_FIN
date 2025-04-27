@@ -64,3 +64,4 @@ public class UserServiceImpl implements UserService {
         return new MessageResponse("alert-success", SuccessMessage.PASSWORD_CHANGED);
     }
 }
+

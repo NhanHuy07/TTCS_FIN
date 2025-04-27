@@ -37,7 +37,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Map<String, Object> attributes = new HashMap<>();
         attributes.put("firstName", user.getFirstName());
         attributes.put("resetCode", "/auth/reset/" + user.getPasswordResetCode());
-        mailService.sendMessageHtml(user.getEmail(), "Password reset", "password-reset-template", attributes);
+        mailService.sendMessageHtml(user.getEmail(), "Đặt lại mật khẩu", "password-reset-template", attributes);
         return new MessageResponse("alert-success",  SuccessMessage.PASSWORD_CODE_SEND);
     }
 

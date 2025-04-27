@@ -62,7 +62,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         Map<String, Object> attributes = new HashMap<>();
         attributes.put("firstName", user.getFirstName());
         attributes.put("activationCode", "/registration/activate/" + user.getActivationCode());
-        mailService.sendMessageHtml(user.getEmail(), "Activation code", "registration-template", attributes);
+        mailService.sendMessageHtml(user.getEmail(), "Kích hoạt tài khoản", "registration-template", attributes);
         return new MessageResponse("alert-success", SuccessMessage.ACTIVATION_CODE_SEND);
     }
 

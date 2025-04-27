@@ -1,17 +1,17 @@
 package com.oop.ptit.group4.shoppingweb.constants;
 
 public class Pages {
-    public static final String ADMIN_MOBILE_PHONES = "admin-products";
-    public static final String ADMIN_EDIT_MOBILE_PHONE = "admin-edit-product";
-    public static final String ADMIN_ADD_MOBILE_PHONE = "admin-add-product";
+    public static final String ADMIN_LAPTOPS = "admin-products";
+    public static final String ADMIN_EDIT_LAPTOP = "admin-edit-product";
+    public static final String ADMIN_ADD_LAPTOP = "admin-add-product";
     public static final String ADMIN_ALL_USERS = "admin-all-users";
     public static final String ADMIN_USER_DETAIL = "admin-user-detail";
     public static final String ORDER = "order";
     public static final String ORDERS = "orders";
     public static final String ORDERING = "ordering";
     public static final String ORDER_FINALIZE = "order-finalize";
-    public static final String MOBILE_PHONE = "product";
-    public static final String MOBILE_PHONES = "products";
+    public static final String LAPTOP = "product";
+    public static final String LAPTOPS = "products";
     public static final String USER_ACCOUNT = "user-account";
     public static final String USER_INFO = "user-info";
     public static final String USER_INFO_EDIT = "user-info-edit";

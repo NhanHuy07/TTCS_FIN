@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping(PathConstants.MOBILE_PHONE)
+@RequestMapping(PathConstants.LAPTOP)
 public class ProductController {
 
     private final ProductService productService;
@@ -24,18 +24,18 @@ public class ProductController {
     @GetMapping("/{productId}")
     public String getProductById(@PathVariable Long productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
-        return Pages.MOBILE_PHONE;
+        return Pages.LAPTOP;
     }
 
     @GetMapping
     public String getProductsByFilterParams(SearchRequest request, Model model, Pageable pageable) {
         controllerUtils.addPagination(request, model, productService.getProductsByFilterParams(request, pageable));
-        return Pages.MOBILE_PHONES;
+        return Pages.LAPTOPS;
     }
 
     @GetMapping("/search")
     public String searchProducts(SearchRequest request, Model model, Pageable pageable) {
         controllerUtils.addPagination(request, model, productService.searchProducts(request, pageable));
-        return Pages.MOBILE_PHONES;
+        return Pages.LAPTOPS;
     }
 }

@@ -34,4 +34,14 @@ public interface AdminService {
     MessageResponse addProduct(ProductRequest productRequest, MultipartFile file);
 
     UserInfoResponse getUserById(Long userId, Pageable pageable);
+
+    MessageResponse lockUser(Long id);
+
+    MessageResponse unlockUser(Long id);
+
+    MessageResponse confirmOrder(Long id);
+
+    MessageResponse deleteOrder(Long id);
+
+    MessageResponse addUser(User user);
 }

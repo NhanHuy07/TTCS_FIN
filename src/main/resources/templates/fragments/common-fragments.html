@@ -13,50 +13,106 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
+        .new-footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 0;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+        }
+
         .footer-container {
-            display: flex;
-            flex-direction: column; /* Stack items vertically by default */
-            align-items: center; /* Center items horizontally */
-            color: white;
-            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .footer-top {
             display: flex;
-            justify-content: space-between; /* Space between (1) and (2) */
-            width: 100%; /* Ensure it spans the container width */
-            max-width: 1200px; /* Optional, limit the width for large screens */
-            padding: 0 20px; /* Add some horizontal padding */
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .footer-left,
-        .footer-right {
-            flex: 1; /* Allow (1) and (2) to take equal space */
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
         }
 
-        .footer-right {
-            text-align: right; /* Align text to the right */
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
-        .footer-center {
-            text-align: center; /* Center text horizontally */
-            margin-top: 20px; /* Add some space above */
+        .footer-section p {
+            font-size: 14px;
+            margin: 5px 0;
         }
 
-        .footer-center p {
-            margin: 0; /* Remove default margins */
+        .social-links {
+            display: flex;
+            gap: 15px;
         }
 
-        .footer-right a {
-            text-decoration: none; /* Remove underline from links */
+        .social-links a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: color 0.3s;
         }
 
-        .footer-right i {
-            margin-right: 10px;
+        .social-links a:hover {
+            color: #007bff;
         }
 
-        .footer-right i:last-child {
-            margin-right: 0; /* Remove margin for the last icon */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+        }
+                .brand-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .brand-item {
+            flex: 0 0 calc(20% - 16px); /* 20% width for 5 items per row, minus gap */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .brand-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain; /* Ensure images fit within the box without distortion */
+        }
+        .brand-item p {
+            margin-top: 8px;
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 15px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -223,38 +279,34 @@
 </th:block>
 
 <!--footer-->
-<footer th:fragment="footer" class="page-footer bg-black text-white">
+<footer th:fragment="footer" class="new-footer">
     <div class="footer-container">
         <div class="footer-top">
-            <!-- (1) Left Content -->
-            <div class="footer-left">
-<!--                <h3>CityMobile</h3>-->
-                <h3 class="nav-link" style="font-size: 1.5rem; font-weight: bold; color: #007bff; text-decoration: none;">
-                    LAPTOPWORLD
-                </h3>
-                <p style="padding-left: 15px">(0337)-690-341</p>
-                <p style="padding-left: 15px">Giờ làm việc: 08:00 đến 20:00 tất cả các ngày trong tuần</p>
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>📞 Hotline: (0337) 690-341</p>
+                <p>📧 Email: info@laptopworld.com</p>
+                <p>⏰ Giờ làm việc: 08:00 - 20:00 (Tất cả các ngày)</p>
             </div>
-
-            <!-- (2) Right Content -->
-            <div class="footer-right">
-                <h3>Social networks</h3>
-                <a href="#">
-                    <i class="fab fa-linkedin fa-2x" style="color:white"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-facebook-f fa-2x" style="color:white"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter fa-2x" style="color:white"></i>
-                </a>
+            <div class="footer-section">
+                <h4>Địa chỉ</h4>
+                <p>📍 Số 18, ngõ 121, Thái Hà, Đống Đa, Hà Nội</p>
+                <p>📍 Số 56, Trần Phú, Hà Đông, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>&copy; 2025 LaptopWorld. All rights reserved.</p>
             </div>
         </div>
-
-        <!-- (3) Centered Below -->
-        <div class="footer-center">
-            <p>LAPTOPWORLD-All rights reserved © 2025</p>
-        </div>
+<!--        <div class="footer-bottom">-->
+<!--            <p>&copy; 2025 LaptopWorld. All rights reserved.</p>-->
+<!--        </div>-->
     </div>
 </footer>
 

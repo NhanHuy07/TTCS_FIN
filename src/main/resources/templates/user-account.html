@@ -1,22 +1,109 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common-fragments :: head"></head>
+<head th:replace="fragments/common-fragments :: head">
+    <style>
+        .cta-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+    </style>
+</head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
 <div th:replace="fragments/common-fragments :: navbar"></div>
 <div id="container" class="bg-light">
-    <div class="py-5">
-        <div class="container py-5 bg-white shadow-sm card-height">
-            <div class="row mx-3">
-                <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
-                <div class="col-md-10">
-                    <h4 class="text-center">
-                        Hello <span th:text="${user.getFirstName()}"></span>
-                    </h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2>Thông tin cá nhân</h2>
+                    <p>Quản lý thông tin tài khoản của bạn</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- ***** Profile Content ***** -->
+    <section class="section" id="our-classes">
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Thông tin cá nhân</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-md-4 text-center">
+                                    <img src="/static/account.png" alt="Avatar" class="img-fluid rounded-circle mb-3" style="max-width: 150px;">
+                                    <h5 th:text="${user.firstName}" class="mb-0">Nguyễn Văn A</h5>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label font-weight-bold">Họ và tên:</label>
+                                        <div class="col-sm-8">
+                                            <p class="form-control-plaintext" th:text="${user.firstName}">Nguyễn Văn A</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label font-weight-bold">Email:</label>
+                                        <div class="col-sm-8">
+                                            <p class="form-control-plaintext" th:text="${user.email}">example@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" th:if="${user.address}">
+                                        <label class="col-sm-4 col-form-label font-weight-bold">Địa chỉ:</label>
+                                        <div class="col-sm-8">
+                                            <p class="form-control-plaintext" th:text="${user.address}">Hà Nội</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" th:if="${user.phoneNumber}">
+                                        <label class="col-sm-4 col-form-label font-weight-bold">Số điện thoại:</label>
+                                        <div class="col-sm-8">
+                                            <p class="form-control-plaintext" th:text="${user.phoneNumber}">0123456789</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">Quản lý tài khoản</h5>
+                                        </div>
+                                        <div class="card-body" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+                                            <div class="list-group">
+                                                <a th:href="@{/user/info}" class="list-group-item list-group-item-action">
+                                                    <i class="fas fa-calendar-alt mr-2"></i> Thông tin cá nhân
+                                                </a>
+                                                <a th:href="@{/order}" class="list-group-item list-group-item-action">
+                                                    <i class="fas fa-shopping-bag mr-2"></i> Đơn hàng của tôi
+                                                </a>
+                                                <a th:href="@{/user/reset}" class="list-group-item list-group-item-action">
+                                                    <i class="fas fa-user-edit mr-2"></i> Đổi mật khẩu
+                                                </a>
+                                                <div sec:authorize="hasAuthority('ADMIN')">
+                                                    <a th:href="@{/admin/dashboard}" class="list-group-item list-group-item-action">
+                                                        <i class="fas fa-tachometer-alt mr-2"></i> Trang quản trị
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <footer th:insert="~{fragments/common-fragments :: footer}"></footer>
 </body>

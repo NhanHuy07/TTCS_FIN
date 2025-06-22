@@ -1,15 +1,39 @@
 <div th:fragment="product-item (product)" class="col-lg-3 d-flex align-items-stretch">
-    <div class="card mb-5 shadow" th:if="${product.getFilename()}">
-        <img th:src="@{/img/{path} (path = ${product.getFilename()})}" class="rounded mx-auto w-50">
+    <div class="card mb-5 shadow position-relative" th:if="${product.getFilename()}">
+        <!-- Product Image -->
+        <img th:src="@{/img/{path} (path = ${product.getFilename()})}"
+             class="rounded mx-auto mt-3"
+             style="width: 80%; max-height: 200px; object-fit: contain;">
+
+        <!-- Card Body -->
         <div class="card-body text-center">
-            <h5 th:text="${product.getProductTitle()}"></h5>
-            <h6 th:text="${product.getBrand()}"></h6>
-            <h6><span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')}"></span> VND</h6>
-        </div>
-        <div class="text-center align-items-end mb-3">
-            <a th:href="@{/product/{productId} (productId = ${product.getId()})}" class="btn btn-dark">
-                Xem chi tiết
+            <!-- Product Title -->
+            <a th:href="@{/product/{productId} (productId = ${product.getId()})}">
+                <h5 th:text="${product.getProductTitle()}"
+                    class="text-primary"
+                    style="font-weight: bold; font-size: 16px;">
+                </h5>
             </a>
+            <!-- Specifications -->
+            <div class="mt-2" style="font-size: 13px; line-height: 1.4;">
+                <p th:if="${product.getRam()}" class="mb-1">
+                    <strong>RAM:</strong> <span th:text="${product.getRam()}"></span>
+                </p>
+                <p th:if="${product.getHardDisk()}" class="mb-1">
+                    <strong>Ổ cứng:</strong> <span th:text="${product.getHardDisk()}"></span>
+                </p>
+                <p th:if="${product.getCard()}" class="mb-1">
+                    <strong>Card:</strong> <span th:text="${product.getCard()}"></span>
+                </p>
+            </div>
+
+            <!-- Pricing -->
+            <div class="mt-3">
+                <h4 class="d-inline-block py-2 px-4"
+                    style="background-color: #ff9800; color: white; border-radius: 5px; font-size: 16px; font-weight: bold;">
+                    <span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')}"></span>đ
+                </h4>
+            </div>
         </div>
     </div>
 </div>

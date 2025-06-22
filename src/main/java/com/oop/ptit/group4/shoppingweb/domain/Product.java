@@ -3,6 +3,7 @@ package com.oop.ptit.group4.shoppingweb.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -16,7 +17,7 @@ public class Product {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
-    @SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq", initialValue = 51, allocationSize = 1)
+    @SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq", initialValue = 11, allocationSize = 1)
     private Long id;
 
     @Column(name = "product_title", nullable = false)
@@ -56,7 +57,10 @@ public class Product {
     private String filename;
 
     @Column(name = "price", nullable = false)
-    private Long price;
+    private BigDecimal price;
+
+    @Column(name = "stock", nullable = false)
+    private int stock;
 
     @Column(name = "weight")
     private String weight;

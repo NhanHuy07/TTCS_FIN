@@ -50,8 +50,8 @@
                 <form action="/product/search" method="get" style="justify-content: center">
                     <th:block th:replace="~{fragments/common-fragments :: search(
                         options=(${ {
-                            { value: 'brand', text: 'Thương hiệu' },
                             { value: 'productTitle', text: 'Tên sản phẩm' },
+                            { value: 'brand', text: 'Thương hiệu' },
                             { value: 'color', text: 'Màu sắc' }
                         } })
                     )}"/>

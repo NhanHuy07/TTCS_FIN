@@ -1,5 +1,6 @@
 package com.oop.ptit.group4.shoppingweb.configuration;
 
+import com.oop.ptit.group4.shoppingweb.security.CustomAuthenticationSuccessHandler;
 import com.oop.ptit.group4.shoppingweb.security.UserDetailsServiceImpl;
 import com.oop.ptit.group4.shoppingweb.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserServiceImpl userService;
     private final UserDetailsServiceImpl userDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final CustomAuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -34,11 +36,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/menu/**",
                         "/product/**"
                 ).permitAll()
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/user/account")
+                .successHandler(authenticationSuccessHandler)
                 .permitAll()
                 .and()
                 .logout()

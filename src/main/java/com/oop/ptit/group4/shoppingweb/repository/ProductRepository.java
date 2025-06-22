@@ -5,7 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -31,8 +33,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "ORDER BY product.price ASC")
     Page<Product> getProductsByFilterParams(
             List<String> brands,
-            List<String> colors,
-            Long priceStart,
-            Long priceEnd,
+             List<String> colors,
+             BigDecimal priceStart,
+             BigDecimal priceEnd,
             Pageable pageable);
 }

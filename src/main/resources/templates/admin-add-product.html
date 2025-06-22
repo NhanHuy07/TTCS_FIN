@@ -7,8 +7,12 @@
 <div id="container" class="bg-light">
     <div class="py-5">
         <div class="container py-5 bg-white shadow-sm card-height">
+
+            <div th:if="${error}" class="alert alert-danger mb-0" role="alert">
+                <strong>Lỗi:</strong> <span th:text="${error}">Có lỗi xảy ra</span>
+            </div>
+
             <div class="row mx-3">
-                <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
                 <div class="col-md-9 mb-5">
                     <th:block th:replace="fragments/common-fragments :: info-title(
                         text='Thêm sản phẩm',
@@ -33,27 +37,27 @@
                             )"/>
                         </div>
                         <div class="form row mt-3">
-                            <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Năm sản xuất',
-                                name='year',
-                                placeholder='Nhập năm sản xuất',
-                                value=(${product} ? ${product.year} : ''),
-                                error=(${yearError})
+                            <th:block th:replace="fragments/account-fragments :: add-product-select(
+                                title='Màu sắc',
+                                name='productColor',
+                                options=(${ {'Đen', 'Trắng', 'Xám', 'Hồng nhạt', 'Xanh dương', 'Xanh lá'} }),
+                                error=(${productColorError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Quốc gia sản xuất',
-                                name='country',
-                                placeholder='Nhập quốc gia',
-                                value=(${product} ? ${product.country} : ''),
-                                error=(${countryError})
+                                title='Loại pin',
+                                name='battery',
+                                placeholder='Nhập loại pin',
+                                value=(${product} ? ${product.battery} : ''),
+                                error=(${batteryError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
-                            <th:block th:replace="fragments/account-fragments :: add-product-select(
-                                title='Loại',
-                                name='model',
-                                options=(${ {'Old', 'New 99%'} }),
-                                error=(${modelError})
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                title='CPU',
+                                name='cpu',
+                                placeholder='Nhập CPU',
+                                value=(${product} ? ${product.cpu} : ''),
+                                error=(${cpuError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
                                 title='Hệ điều hành',
@@ -64,43 +68,44 @@
                             )"/>
                         </div>
                         <div class="form row mt-3">
-                            <th:block th:replace="fragments/account-fragments :: add-product-select(
-                                title='Màu sắc',
-                                name='productColor',
-                                options=(${ {'light', 'dark'} }),
-                                error=(${productColorError})
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                title='RAM',
+                                name='ram',
+                                placeholder='Nhập RAM',
+                                value=(${product} ? ${product.ram} : ''),
+                                error=(${ramError})
                             )"/>
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Dung lượng pin',
-                                name='batteryCapacity',
-                                placeholder='Nhập dung lượng pin',
-                                value=(${product} ? ${product.batteryCapacity} : ''),
-                                error=(${batteryCapacityError})
+                                title='Ổ cứng',
+                                name='hardDisk',
+                                placeholder='Nhập dung lượng ổ cứng',
+                                value=(${product} ? ${product.hardDisk} : ''),
+                                error=(${hardDiskError})
                             )"/>
                         </div>
                         <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Bộ nhớ',
-                                name='storageCapacity',
-                                placeholder='Nhập dung lượng bộ nhớ',
-                                value=(${product} ? ${product.storageCapacity} : ''),
-                                error=(${storageCapacityError})
+                                title='Card đồ họa',
+                                name='card',
+                                placeholder='Nhập card đồ họa',
+                                value=(${product} ? ${product.card} : ''),
+                                error=(${cardError})
                             )"/>
-                            <th:block th:replace="fragments/account-fragments :: add-product-input(
-                                title='Dung lượng RAM',
-                                name='ramCapacity',
-                                placeholder='Nhập dung lượng RAM',
-                                value=(${product} ? ${product.ramCapacity} : ''),
-                                error=(${ramCapacityError})
-                            )"/>
-                        </div>
-                        <div class="form row mt-3">
                             <th:block th:replace="fragments/account-fragments :: add-product-input(
                                 title= 'Giá',
                                 name='price',
                                 placeholder='Nhập giá',
                                 value=(${product} ? ${product.price} : ''),
                                 error=(${priceError})
+                            )"/>
+                        </div>
+                        <div class="form row mt-3">
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                title= 'Số lượng',
+                                name='stock',
+                                placeholder='Nhập số lượng',
+                                value=(${product} ? ${product.stock} : ''),
+                                error=(${stockError})
                             )"/>
                             <div class="col" style="margin-top: 35px">
                                 <input type="file" name="file"/>

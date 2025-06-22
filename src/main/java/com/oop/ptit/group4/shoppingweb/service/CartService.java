@@ -1,14 +1,19 @@
 package com.oop.ptit.group4.shoppingweb.service;
 
+import com.oop.ptit.group4.shoppingweb.domain.Cart;
+import com.oop.ptit.group4.shoppingweb.domain.CartItem;
 import com.oop.ptit.group4.shoppingweb.domain.Product;
+import com.oop.ptit.group4.shoppingweb.domain.User;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface CartService {
 
-    List<Product> getProductsInCart();
-
-    void addProductToCart(Long productId);
-
-    void removeProductFromCart(Long productId);
+    Cart getOrCreateCart(User user);
+    CartItem addToCart(User user, Product product, int quantity);
+    CartItem updateCartItem(Long cartItemId, int quantity);
+    void removeCartItem(Long cartItemId);
+    void clearCart(User user);
+    BigDecimal getCartTotal(Cart cart);
 }

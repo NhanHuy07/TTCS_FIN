@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{admin/layout}">
+<head>
+  <title>Thêm người dùng mới - Admin</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="card shadow">
+    <div class="card-header border-0">
+      <h3 class="mb-0">Thêm người dùng mới</h3>
+    </div>
+    <div class="card-body">
+      <!-- Hiển thị thông báo lỗi nếu có -->
+      <div th:if="${error}" class="alert alert-danger" role="alert">
+        <strong>Lỗi:</strong> <span th:text="${error}"></span>
+      </div>
+      <form th:action="@{/admin/users/add}" th:object="${user}" method="post">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" th:field="*{email}" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" class="form-control" id="password" th:field="*{password}" required>
+        </div>
+        <div class="form-group">
+          <label for="firstName">Tên</label>
+          <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Họ</label>
+          <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Số điện thoại</label>
+          <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}">
+        </div>
+        <div class="form-group">
+          <label for="city">Thành phố</label>
+          <input type="text" class="form-control" id="city" th:field="*{city}">
+        </div>
+        <div class="form-group">
+          <label for="address">Địa chỉ</label>
+          <input type="text" class="form-control" id="address" th:field="*{address}">
+        </div>
+        <div class="form-group">
+          <label for="roles">Vai trò</label>
+          <select class="form-control" id="roles" th:field="*{roles}">
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="active">Trạng thái</label>
+          <select class="form-control" id="active" th:field="*{active}">
+            <option value="true">Hoạt động</option>
+            <option value="false">Bị khóa</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm người dùng</button>
+        <a th:href="@{/admin/users}" class="btn btn-secondary">Hủy</a>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

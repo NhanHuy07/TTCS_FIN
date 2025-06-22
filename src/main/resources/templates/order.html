@@ -8,11 +8,10 @@
     <div class="py-5">
         <div class="container py-5 bg-white shadow-sm card-height">
             <div class="row mx-3">
-                <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
                 <div class="col-md-10">
                     <div class="container mb-5">
                         <th:block th:replace="fragments/common-fragments :: info-title(
-                            text='Đơn hàng số #' + ${order.getId()},
+                            text='Đơn hàng số ' + ${order.orderNumber},
                             titleClass='text-center',
                             icon='fas fa-shopping-bag'
                         )"/>
@@ -28,15 +27,15 @@
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Địa chỉ', text=${order.getAddress()})"/>
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Email', text=${order.getEmail()})"/>
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Số điện thoại', text=${order.getPhoneNumber()})"/>
-                                <th:block th:replace="fragments/common-fragments :: data-item(title='Mã bưu chính', text=${order.getPostIndex()})"/>
                             </div>
                             <div class="col-md-6">
                                 <h5 class="manage_user_order_subtitle">
                                     <i class="fas fa-info-circle mr-2"></i>
-                                    Order information
+                                    Thông tin đơn hàng
                                 </h5>
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Mã đặt hàng', text=${order.getId()})"/>
                                 <th:block th:replace="fragments/common-fragments :: data-item(title='Ngày', text=${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')})"/>
+                                <th:block th:replace="fragments/common-fragments :: data-item(title='Trạng thái', text=${order.status})"/>
                                 <h4 class="manage_user_order_summary">
                                     Tổng số tiền phải thanh toán:
 <!--                                    <span class="manage_user_order_summary_price" th:text="${order.getTotalPrice()} + ' VND'"></span>-->
@@ -49,19 +48,30 @@
                             <thead class="table-active">
                             <tr>
                                 <th>Mã sản phẩm</th>
-                                <th>Thương hiệu</th>
                                 <th>Tên sản phẩm</th>
+                                <th>Thương hiệu</th>
                                 <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Hình ảnh</th>
                             </tr>
                             </thead>
-                            <tbody th:each="product : ${order.getProducts()}">
+                            <tbody th:each="orderItem : ${order.getOrderItems()}">
                             <tr>
                                 <th>
-                                    <a th:href="@{/product/{productId} (productId = ${product.getId()})}" th:text="${product.getId()}"></a>
+                                    <a th:href="@{/product/{productId} (productId = ${orderItem.product.getId()})}" th:text="${orderItem.product.getId()}"></a>
                                 </th>
-                                <th th:text="${product.getBrand()}"></th>
-                                <th th:text="${product.getProductTitle()}"></th>
-                                <th th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></th>
+                                <th th:text="${orderItem.productName}"></th>
+                                <th th:text="${orderItem.product.getBrand()}"></th>
+                                <th th:text="${#numbers.formatDecimal(orderItem.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></th>
+                                <th th:text="${orderItem.quantity}"></th>
+                                <th>
+                                    <img
+                                            th:src="@{'/img/' + ${orderItem.productImage}}"
+                                            alt="Image"
+                                            class="avatar rounded"
+                                            style="width: 50px; height: 40px; object-fit: cover"
+                                    />
+                                </th>
                             </tr>
                             </tbody>
                         </table>

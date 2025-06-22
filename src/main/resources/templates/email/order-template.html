@@ -34,52 +34,47 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                 <tr>
                     <td class="header" align="center">
-                        <h3>Order # <span th:text="${order.getId()}" th:remove="tag"></span></h3>
-                    </td>
-                    <td class="header" align="center">
-                        <img src="https://i.ibb.co/6YNPHCd/LOGO3.jpg" style="width: 180px; border-radius: 5px;"/>
+                        <h3>Order # <span th:text="${order.orderNumber}" th:remove="tag"></span></h3>
                     </td>
                 </tr>
             </table>
             <hr/>
-            <h3 style="text-align: center">Hello <span th:text="${order.getFirstName()}" th:remove="tag"></span>!</h3>
-            <p style="text-align: center">Thank you for your order in online store.</p>
+            <h3 style="text-align: center">Xin chào <span th:text="${order.getFirstName()}" th:remove="tag"></span>!</h3>
+            <p style="text-align: center"> Cảm ơn đã đặt hàng tại cửa hàng của chúng tôi.</p>
             <hr/>
             <div class="text-left">
-                <p><b>Your order number is: <span th:text="${order.getId()}" th:remove="tag"></span></b></p>
-                <p><b>Date:</b> <span th:text="${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')}" th:remove="tag"></span></p>
-                <p><b>Name:</b> <span th:text="${order.getFirstName() + ' ' + order.getLastName()}"
+                <p><b>Mã đơn hàng của bạn là: <span th:text="${order.orderNumber}" th:remove="tag"></span></b></p>
+                <p><b>Ngày:</b> <span th:text="${#temporals.format(order.getDate(), 'yyyy-MM-dd HH:mm')}" th:remove="tag"></span></p>
+                <p><b>Tên:</b> <span th:text="${order.getFirstName() + ' ' + order.getLastName()}"
                                       th:remove="tag"></span></p>
-                <p><b>Address:</b> <span th:text="${order.getCity() + ' ' + order.getAddress()}" th:remove="tag"></span>
+                <p><b>Địa chỉ:</b> <span th:text="${order.getCity() + ' ' + order.getAddress()}" th:remove="tag"></span>
                 </p>
-                <p><b>Post index:</b> <span th:text="${order.getPostIndex()}" th:remove="tag"></span></p>
-                <p><b>Phone:</b> <span th:text="${order.getPhoneNumber()}" th:remove="tag"></span></p>
+                <p><b>Điện thoại:</b> <span th:text="${order.getPhoneNumber()}" th:remove="tag"></span></p>
             </div>
-            <th:block th:each="product : ${order.getProducts()}">
+            <th:block th:each="orderItem : ${order.getOrderItems()}">
                 <hr/>
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                     <tr>
                         <td style="width: 95px;" class="content">
                             <img style="width: 100%; height: auto"
-                                 th:src="@{{path} (path = ${product.getFilename()})}"/>
+                                 th:src="@{http://localhost:8088/resources/img/{path} (path = ${orderItem.productImage})}"/>
                         </td>
                         <td style="width: 179px;" class="content">
-                            <p><b th:text="${product.getBrand()}"></b><br/>
+                            <p><b th:text="${orderItem.product.getBrand()}"></b><br/>
                                 <span style="font-size: 14px">
-                                    <span th:text="${product.getProductTitle()}"
+                                    <span th:text="${orderItem.product.getProductTitle()}"
                                           th:remove="tag"></span><br/>
-                            <span th:text="${product.getModel()}" th:remove="tag"></span><br/>
-                            <span th:text="${product.getOperatingSystem()}" th:remove="tag"></span> ml.</span>
+                            <span th:text="${orderItem.product.getOperatingSystem()}" th:remove="tag"></span></span>
                             </p>
                         </td>
                         <td style="width: 54px;" class="content">
-                            <span th:text="${product.getPrice()}" th:remove="tag"></span> $
+                            <span th:text="${#numbers.formatDecimal(orderItem.price, 0, 'COMMA', 0, 'POINT')} + ' VND'" th:remove="tag"></span>
                         </td>
                     </tr>
                 </table>
             </th:block>
             <hr/>
-            <h3>Total price: $ <span th:text="${order.getTotalPrice()}" th:remove="tag"></span></h3>
+            <h3> Tổng tiền: <span th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT')} + ' VND'" th:remove="tag"></span></h3>
         </td>
     </tr>
 </table>

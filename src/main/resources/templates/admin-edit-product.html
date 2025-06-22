@@ -8,10 +8,9 @@
     <div class="py-5">
         <div class="container py-5 bg-white shadow-sm card-height">
             <div class="row mx-3">
-                <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
                 <div class="col-md-9 mb-5">
                     <th:block th:replace="fragments/common-fragments :: info-title(text='Edit product', icon='fas fa-edit mr-2')"/>
-                    <form method="post" action="/admin/edit/product" enctype="multipart/form-data">
+                    <form method="post" action="/admin/edit/products" enctype="multipart/form-data">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
@@ -27,60 +26,72 @@
                                     error=(${brandError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Năm sản xuất',
-                                    name='year',
-                                    value=(${product.getYear()}),
-                                    error=(${yearError})
+                                    title='Màu sắc',
+                                    name='productColor',
+                                    value=(${product.getProductColor()}),
+                                    error=(${productColorError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Quốc gia',
-                                    name='country',
-                                    value=(${product.getCountry()}),
-                                    error=(${countryError})
+                                    title='CPU',
+                                    name='cpu',
+                                    value=(${product.getCpu()}),
+                                    error=(${cpuError})
                                 )"/>
-                                <th:block th:replace="fragments/account-fragments :: edit-product-select(
-                                    title='Loại',
-                                    name='model',
-                                    options=(${ {'Old', 'New 99%'} }),
-                                    value=(${product.getModel()}),
-                                    error=(${modelError})
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Pin',
+                                    name='battery',
+                                    value=(${product.getBattery()}),
+                                    error=(${batteryError})
                                 )"/>
+<!--                                <th:block th:replace="fragments/account-fragments :: edit-product-select(-->
+<!--                                    title='Loại',-->
+<!--                                    name='model',-->
+<!--                                    options=(${ {'Old', 'New 99%'} }),-->
+<!--                                    value=(${product.getModel()}),-->
+<!--                                    error=(${modelError})-->
+<!--                                )"/>-->
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
                                     title='Hệ điều hành',
                                     name='operatingSystem',
                                     value=(${product.getOperatingSystem()}),
                                     error=(${operatingSystemError})
                                 )"/>
-                                <th:block th:replace="fragments/account-fragments :: edit-product-select(
-                                    title='Màu sắc',
-                                    name='productColor',
-                                    options=(${ {'light', 'dark'} }),
-                                    value=(${product.getProductColor()}),
-                                    error=(${productColorError})
-                                )"/>
+<!--                                <th:block th:replace="fragments/account-fragments :: edit-product-select(-->
+<!--                                    title='Màu sắc',-->
+<!--                                    name='productColor',-->
+<!--                                    options=(${ {'light', 'dark'} }),-->
+<!--                                    value=(${product.getProductColor()}),-->
+<!--                                    error=(${productColorError})-->
+<!--                                )"/>-->
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='Dung lượng pin',
-                                    name='batteryCapacity',
-                                    value=(${product.getBatteryCapacity()}),
-                                    error=(${batteryCapacityError})
+                                    title='RAM',
+                                    name='ram',
+                                    value=(${product.getRam()}),
+                                    error=(${ramError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
                                     title='Bộ nhớ',
-                                    name='storageCapacity',
-                                    value=(${product.getStorageCapacity()}),
-                                    error=(${storageCapacityError})
+                                    name='hardDisk',
+                                    value=(${product.getHardDisk()}),
+                                    error=(${hardDiskError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
-                                    title='RAM',
-                                    name='ramCapacity',
-                                    value=(${product.getRamCapacity()}),
-                                    error=(${ramCapacityError})
+                                    title='Card đồ họa',
+                                    name='card',
+                                    value=(${product.getCard()}),
+                                    error=(${cardError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-product-input(
                                     title='Giá',
                                     name='price',
                                     value=(${product.getPrice()}),
                                     error=(${priceError})
+                                )"/>
+                                <th:block th:replace="fragments/account-fragments :: edit-product-input(
+                                    title='Số lượng',
+                                    name='stock',
+                                    value=(${product.getStock()}),
+                                    error=(${stockError})
                                 )"/>
                             </div>
                             <div class="col-md-6">

@@ -6,14 +6,14 @@
         </h4>
         <a class="account-sidebar-link nav-link" href="/user/info">Thông tin cá nhân</a>
         <a class="account-sidebar-link nav-link" href="/user/reset">Đổi mật khẩu</a>
-        <th:block sec:authorize="hasAuthority('ADMIN')">
-            <a class="account-sidebar-link nav-link" href="/admin/add/product">Thêm sản phẩm</a>
-            <a class="account-sidebar-link nav-link" href="/admin/products">Danh sách sản phẩm</a>
-            <a class="account-sidebar-link nav-link" href="/admin/orders">Danh sách các đơn hàng</a>
-            <a class="account-sidebar-link nav-link" href="/admin/users">Danh sách người dùng</a>
-        </th:block>
+<!--        <th:block sec:authorize="hasAuthority('ADMIN')">-->
+<!--            <a class="account-sidebar-link nav-link" href="/admin/add/product">Thêm sản phẩm</a>-->
+<!--            <a class="account-sidebar-link nav-link" href="/admin/products">Danh sách sản phẩm</a>-->
+<!--            <a class="account-sidebar-link nav-link" href="/admin/orders">Danh sách các đơn hàng</a>-->
+<!--            <a class="account-sidebar-link nav-link" href="/admin/users">Danh sách người dùng</a>-->
+<!--        </th:block>-->
         <th:block sec:authorize="hasAuthority('USER')">
-            <a class="account-sidebar-link nav-link" href="/order/user/orders">Danh sách các đơn hàng</a>
+            <a class="account-sidebar-link nav-link" href="/order">Danh sách các đơn hàng</a>
         </th:block>
     </div>
 </th:block>
@@ -84,7 +84,7 @@
         <th:block th:replace="fragments/common-fragments :: data-item(title='Thành phố', text=${user.getCity()})" />
         <th:block th:replace="fragments/common-fragments :: data-item(title='Địa chỉ', text=${user.getAddress()})" />
         <th:block th:replace="fragments/common-fragments :: data-item(title='Số điện thoại', text=${user.getPhoneNumber()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='Mã bưu chính', text=${user.getPostIndex()})" />
+<!--        <th:block th:replace="fragments/common-fragments :: data-item(title='Mã bưu chính', text=${user.getPostIndex()})" />-->
         <a th:with="isUserEditOpen=${#request.getRequestURI() == '/user/info/edit'}"
            th:href="@{${isUserEditOpen} ? '/user/info' : '/user/info/edit'}"
            role="button">

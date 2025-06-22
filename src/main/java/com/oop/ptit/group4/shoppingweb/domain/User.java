@@ -61,6 +61,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    @ManyToMany
-    private List<Product> productList;
+//    @ManyToMany
+//    private List<Product> productList;
 }

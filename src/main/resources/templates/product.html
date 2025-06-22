@@ -1,93 +1,426 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common-fragments :: head"></head>
+<head>
+    <title>Laptop World</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"/>
+    <link rel="stylesheet" href="/static/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        #container {
+            padding: 20px;
+            padding-bottom: 240px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            min-width: 300px;
+        }
+
+        .product-images img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .main-image {
+            grid-column: span 2;
+        }
+
+        .product-specs {
+            width: 100%;
+            grid-column: span 2; /* làm bảng rộng bằng hình ảnh chính */
+        }
+
+
+        .product-specs h4 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .product-specs table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-specs th,
+        .product-specs td {
+            padding: 10px;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .product-specs th {
+            background-color: #f9f9f9;
+            color: #333;
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .product-specs td {
+            color: #666;
+        }
+
+        .product-specs tr:last-child th,
+        .product-specs tr:last-child td {
+            border-bottom: none;
+        }
+
+        .product-specs tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .product-info {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+            min-height: 500px; /* Cân đối với phần product-images */
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #e60000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .warranty {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-size: 14px;
+            color: #008000;
+            margin-bottom: 10px;
+        }
+
+        .promotions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .promotions h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .promotions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .promotions ul li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .promotions ul li::before {
+            content: "⭐";
+            margin-right: 5px;
+        }
+
+        .gift {
+            background-color: #fff0f0;
+            padding: 10px;
+            border: 1px solid #e60000;
+            color: #e60000;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .contact p {
+            margin: 5px 0;
+        }
+
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .social {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social span {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .new-footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 0;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .product-images, .product-info {
+                flex: none;
+                width: 100%;
+            }
+            .footer-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 15px;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
 <div th:replace="fragments/common-fragments :: navbar"></div>
 <div id="container" class="bg-light">
     <div class="container pt-5 pb-5 bg-white shadow-sm">
-        <div class="row">
-            <div class="col-md-5">
-                <img th:src="@{/img/{path} (path = ${product.getFilename()})}" class="rounded mx-auto w-100">
-            </div>
-            <div class="col-md-7">
-                <h2 th:text="${product.getProductTitle()}"></h2>
-                <h3 th:text="${product.getBrand()}"></h3>
-<!--                <p>Mã sản phẩm: <span th:text="${product.getId()}"></span></p>-->
-                <p class="product-stock" style="color: #54C0A1">Còn hàng</p>
-                <div class="row ml-1">
-                    <h6 class="mr-5">
-                        <span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></span>
-                    </h6>
-                    <form action="/cart/add" method="post">
-                        <button type="submit" name="productId" class="btn btn-success mx-3"
-                                th:value="${product.getId()}">
-                            <i class="fas fa-cart-plus mr-2 fa-lg"></i>
-                            Thêm vào giỏ hàng
-                        </button>
-                    </form>
-                </div>
-                <br>
-                <table class="table">
-                    <tbody>
+        <div class="product-images">
+            <img th:src="@{/img/{path} (path = ${product.getFilename()})}" class="main-image">
+            <div class="product-specs">
+                <h4>Thông số kỹ thuật</h4>
+                <table>
                     <tr>
-                        <td>Tên sản phẩm:</td>
-                        <td th:text="${product.productTitle}"></td>
+                        <th>CPU</th>
+                        <td th:text="${product.getCpu()}"></td>
                     </tr>
                     <tr>
-                        <td>Thương hiệu:</td>
-                        <td th:text="${product.brand}"></td>
+                        <th>RAM</th>
+                        <td th:text="${product.getRam()}"></td>
                     </tr>
                     <tr>
-                        <td>Màu sắc:</td>
-                        <td th:text="${product.productColor}"></td>
+                        <th>Ổ cứng</th>
+                        <td th:text="${product.getHardDisk()}"></td>
                     </tr>
                     <tr>
-                        <td>CPU:</td>
-                        <td th:text="${product.cpu}"></td>
+                        <th>GPU</th>
+                        <td th:text="${product.getCard()}"></td>
                     </tr>
                     <tr>
-                        <td>RAM:</td>
-                        <td th:text="${product.ram}"></td>
+                        <th>Màn hình</th>
+                        <td th:text="${product.getScreen()}"></td>
                     </tr>
-                    <tr>
-                        <td>Ổ cứng:</td>
-                        <td th:text="${product.hardDisk}"></td>
-                    </tr>
-                    <tr>
-                        <td>Card đồ họa:</td>
-                        <td th:text="${product.card}"></td>
-                    </tr>
-                    <tr>
-                        <td>Màn hình:</td>
-                        <td th:text="${product.screen}"></td>
-                    </tr>
-                    <tr>
-                        <td>Cổng kết nối:</td>
-                        <td th:text="${product.connectionPort}"></td>
-                    </tr>
-                    <tr>
-                        <td>Webcam:</td>
-                        <td th:text="${product.webCam}"></td>
-                    </tr>
-                    <tr>
-                        <td>Thông tin pin:</td>
-                        <td th:text="${product.battery}"></td>
-                    </tr>
-                    <tr>
-                        <td>Trọng lượng:</td>
-                        <td th:text="${product.weight} + ' gram'"></td>
-                    </tr>
-                    <tr>
-                        <td>Hệ điều hành:</td>
-                        <td th:text="${product.operatingSystem}"></td>
-                    </tr>
-                    </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product-title" th:text="${product.getProductTitle()}"></div>
+            <div class="price">
+                <h4 class="d-inline-block py-2 px-4"
+                    style="background-color: #ff9800; color: white; border-radius: 5px; font-size: 24px; font-weight: bold;">
+                    <span th:text="${#numbers.formatDecimal(product.getPrice(), 0, 'COMMA', 0, 'POINT')}"></span> đ
+                </h4>
+            </div>
+            <div class="warranty">Bảo hành: 12 tháng LaptopWorld</div>
+            <div class="status" th:text="${product.stock > 0} ? ('Còn lại: ' + ${product.stock}) : 'Hết hàng'">Tình trạng: Còn hàng</div>            <div class="promotions">
+                <h3>YÊN TÂM MUA SẮM TẠI LaptopWorld</h3>
+                <ul>
+                    <li>Chất lượng sản phẩm là hàng đầu</li>
+                    <li>Dùng test máy 15 ngày đầu lỗi 1 đổi 1</li>
+                    <li>Hỗ trợ và nâng máy sau bán hàng tốt nhất</li>
+                    <li>Giao hàng miễn phí toàn quốc nhanh nhất</li>
+                </ul>
+            </div>
+            <div class="gift">GIAO TẬN NƠI HOẶC NHẬN Ở CỬA HÀNG</div>
+            <div class="buttons">
+                <form th:if="${product.stock > 0}" th:action="@{'/cart/add/' + ${product.id}}" method="post" class="mt-4">
+                    <div class="form-group row">
+                        <label for="quantity" class="col-sm-3 col-form-label">Số lượng:</label>
+                        <div class="col-sm-9">
+                            <div class="input-group quantity-input">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="decreaseBtn">-</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="quantity" name="quantity" th:value="${quantity}" min="1" th:max="${product.stock}">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="increaseBtn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                            </button>
+                            <a href="/product" class="btn btn-outline-secondary btn-lg ml-2">
+                                <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+                            </a>
+                        </div>
+                    </div>
+                </form>
+<!--                <button class="btn btn-primary">MUA NGAY</button>-->
+<!--                <button class="btn btn-secondary">TRẢ GÓP QUA THẺ TÍN DỤNG</button>-->
+            </div>
+            <div th:if="${product.stock == 0}" class="mt-4">
+                <div class="alert alert-warning">
+                    <h5><i class="fas fa-exclamation-triangle"></i> Sản phẩm hiện đã hết hàng</h5>
+                    <p>Vui lòng quay lại sau hoặc liên hệ với chúng tôi để biết thêm thông tin.</p>
+                </div>
+                <a href="/product" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left"></i> Quay lại danh sách phụ tùng
+                </a>
+            </div>
+            <div class="contact">
+                <p>📍 Số 18, ngõ 121, Thái Hà, Đống Đa, HN</p>
+                <p>📍 Số 56, Trần Phú, Hà Đông, HN</p>
+                <p>📞 Gọi 0825.233.233 để được tư vấn mua hàng (Miễn phí)</p>
+                <p>📧 <a href="mailto:laptopworld2025@gmail.com">laptopworld2025@gmail.com</a></p>
             </div>
         </div>
     </div>
 </div>
+
 <footer th:insert="~{fragments/common-fragments :: footer}"></footer>
 </body>
 </html>

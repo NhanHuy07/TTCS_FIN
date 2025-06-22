@@ -1,124 +1,83 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common-fragments :: head"></head>
+<head th:replace="fragments/common-fragments :: head">
+</head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
 <div th:replace="fragments/common-fragments :: navbar"></div>
 <div id="container">
-    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
+    <!-- New Banner Carousel (unchanged) -->
+    <div id="bannerCarousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-<!--                <a th:href="@{/product/3}">-->
-<!--                    <img class="d-block w-90" src="https://i.ibb.co/Qk3WLwK/oppo-f9-red-1200x1200.jpg" alt="First slide">-->
-<!--                </a>-->
-                <a th:href="@{/product/4}">
-                    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-                        <img src="../static/hp-victus-16-s0173ax-r5-a9lg9pa-1-750x500.jpg" alt="First slide" height="500" style="max-width: 90%; height: 300;">
-                    </div>                </a>
+                <div style="width: 100vw; height: 640px; position: relative; overflow: hidden;">
+                    <img src="../static/banner-1.jpg" alt="Banner 1" class="img-fluid"
+                         style="width: 100vw; height: 640px; object-fit: cover; position: absolute; top: 0; left: 0;">
+                </div>
             </div>
             <div class="carousel-item">
-<!--                <a th:href="@{/product/4}">-->
-<!--                    <img class="d-block w-90" src="https://i.ibb.co/3zLG7XK/nokia-51-plus-black-18thangbh-400x400.jpg" alt="Second slide">-->
-<!--                </a>-->
-                <a th:href="@{/product/3}">
-                    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-                        <img src="../static/75387_laptop_hp_pavilion_15_eg3094tu__8c5l5pa___5_.jpg" alt="First slide" height="500" style="max-width: 90%; height: 300;">
-                    </div>                </a>
+                <div style="width: 100vw; height: 640px; position: relative; overflow: hidden;">
+                    <img src="../static/banner-2.jpg" alt="Banner 2" class="img-fluid"
+                         style="width: 100vw; height: 640px; object-fit: cover; position: absolute; top: 0; left: 0;">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
+                    <img src="../static/banner-3.jpg" alt="Banner 3" class="img-fluid" style="width: 100vw; height: 100vh; object-fit: cover; position: absolute; top: 0; left: 0;">
+                </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
     <div class="container text-center my-3 mt-5">
         <h3>Thương hiệu</h3>
-        <div class="brand-list d-flex flex-wrap justify-content-center gap-3">
+        <div class="brand-list">
             <div class="brand-item">
-                <img src="https://i.ibb.co/ThVcsy7/Samsung.jpg" alt="Samsung" class="img-fluid" height="100">
-                <p>Samsung</p>
+                <img src="https://i.ibb.co/Ps4j2Vn9/acer.png" alt="Acer" class="img-fluid">
+                <p>Acer</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/TkV5Mj8/Xiaomi.png" alt="Xiaomi" class="img-fluid" height="100">
-                <p>Xiaomi</p>
+                <img src="https://i.ibb.co/cSptpxT1/asus.jpg" alt="Asus" class="img-fluid">
+                <p>Asus</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/d4LtSmg/Oppo.jpg" alt="Oppo" class="img-fluid" height="100">
-                <p>Oppo</p>
+                <img src="https://i.ibb.co/1G6YCzGr/dell-logo.jpg" alt="Dell" class="img-fluid">
+                <p>Dell</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/WvQghQc/Nokia.jpg" alt="Nokia" class="img-fluid" height="100">
-                <p>Nokia</p>
+                <img src="https://i.ibb.co/mrMh6VgS/gigabyte.png" alt="Gigabyte" class="img-fluid">
+                <p>Gigabyte</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/CQQry18/Apple.jpg" alt="Apple" class="img-fluid" height="100">
-                <p>Apple</p>
+                <img src="https://i.ibb.co/tphVQTcy/hp.jpg" alt="HP" class="img-fluid">
+                <p>HP</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/RyvJhd4/Mobiistar.jpg" alt="Mobiistar" class="img-fluid" height="100">
-                <p>Mobiistar</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/cyyxR2w/Huawei.jpg" alt="Huawei" class="img-fluid" height="100">
+                <img src="https://i.ibb.co/xKqz1Zv1/Huawei.png" alt="Huawei" class="img-fluid">
                 <p>Huawei</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/k014dQn/Realme.png" alt="Realme" class="img-fluid" height="100">
-                <p>Realme</p>
+                <img src="https://i.ibb.co/bRy0v2xk/lenovo.jpg" alt="Lenovo" class="img-fluid">
+                <p>Lenovo</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/NZqhznr/Philips.jpg" alt="Philips" class="img-fluid" height="100">
-                <p>Philips</p>
+                <img src="https://i.ibb.co/Fq5D7c5r/mac.png" alt="MacBook" class="img-fluid">
+                <p>MacBook</p>
             </div>
             <div class="brand-item">
-                <img src="https://i.ibb.co/VLKT8bJ/Vivo.jpg" alt="Vivo" class="img-fluid" height="100">
-                <p>Vivo</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/JjmHmTm/Mobell.jpg" alt="Mobell" class="img-fluid" height="100">
-                <p>Mobell</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/pd6BrFg/Itel.jpg" alt="Itel" class="img-fluid" height="100">
-                <p>Itel</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/1qTFgvd/Coolpad.png" alt="Coolpad" class="img-fluid" height="100">
-                <p>Coolpad</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/M6t2R8q/HTC.jpg" alt="HTC" class="img-fluid" height="100">
-                <p>HTC</p>
-            </div>
-            <div class="brand-item">
-                <img src="https://i.ibb.co/0F1y55p/Motorola.jpg" alt="Motorola" class="img-fluid" height="100">
-                <p>Motorola</p>
+                <img src="https://i.ibb.co/TxpqhZKV/msi.png" alt="MSI" class="img-fluid">
+                <p>MSI</p>
             </div>
         </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card mb-5">
-                    <a th:href="${'/product?colors=light'}">
-                        <img class="img-fluid" src="https://i.ibb.co/Lp6FQ99/banner3.png">
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card mb-5">
-                    <a th:href="${'/product?colors=dark'}">
-                        <img class="img-fluid" src="https://i.ibb.co/WVMGPhf/banner0.gif">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container text-center my-3">
         <h4>Khuyên dùng</h4>
     </div>

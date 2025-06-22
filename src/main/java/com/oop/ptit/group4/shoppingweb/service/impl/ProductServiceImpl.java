@@ -13,8 +13,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +25,11 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ModelMapper modelMapper;
+
+    @Override
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
 
     @Override
     public Product getProductById(Long productId) {
@@ -37,8 +45,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> getProductsByFilterParams(SearchRequest request, Pageable pageable) {
-        Long startingPrice = request.getPrice();
-        Long endingPrice = startingPrice + (startingPrice == 0 ? 40000000 : 5000000);
+        BigDecimal startingPrice = request.getPrice();
+        BigDecimal endingPrice = startingPrice.add(startingPrice.compareTo(BigDecimal.ZERO) == 0 ? new BigDecimal("40000000") : new BigDecimal("5000000"));
         return productRepository.getProductsByFilterParams(
                 request.getBrands(),
                 request.getColors(),
@@ -50,5 +58,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Page<Product> searchProducts(SearchRequest request, Pageable pageable) {
         return productRepository.searchProducts(request.getSearchType(), request.getText(), pageable);
+    }
+
+    @Override
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
     }
 }
